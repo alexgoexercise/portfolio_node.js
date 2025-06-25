@@ -1,0 +1,222 @@
+.resume {
+  max-width: clamp(300px, 95vw, 1000px);
+  margin: clamp(80px, 12vh, 120px) auto clamp(2rem, 4vh, 3rem);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #000;
+  line-height: 1.6;
+  padding: 0 clamp(1rem, 4vw, 2rem);
+  background: #fff;
+  border-radius: clamp(8px, 2vw, 16px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: clamp(1rem, 3vw, 2rem);
+  padding: clamp(1.5rem, 4vw, 3rem) 0;
+}
+
+.header-left {
+  flex: 1;
+  min-width: 250px;
+}
+
+.header-photo {
+  flex-shrink: 0;
+}
+
+.photo-box {
+  width: clamp(80px, 15vw, 120px);
+  height: clamp(120px, 25vw, 180px);
+  background-color: #d9d9d9;
+  border-radius: clamp(6px, 1.5vw, 12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(0.7rem, 2vw, 0.9rem);
+  color: #555;
+  font-weight: 600;
+  overflow: hidden;
+}
+
+.photo-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+header h1 {
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  margin: 0;
+  font-weight: bold;
+  color: #1e88e5;
+}
+
+header h2 {
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  font-weight: 600;
+  margin: clamp(0.2rem, 1vw, 0.5rem) 0;
+  color: #333;
+}
+
+header p {
+  font-size: clamp(0.85rem, 2.5vw, 1rem);
+  color: #555;
+  word-wrap: break-word;
+  line-height: 1.5;
+}
+
+section {
+  margin-bottom: clamp(1.5rem, 4vw, 3rem);
+  padding: clamp(1rem, 3vw, 2rem) 0;
+}
+
+h3 {
+  font-size: clamp(1.1rem, 3vw, 1.4rem);
+  border-bottom: 2px solid #1e88e5;
+  padding-bottom: clamp(3px, 1vw, 8px);
+  margin-bottom: clamp(8px, 2vw, 15px);
+  text-transform: uppercase;
+  color: #1e88e5;
+  font-weight: 700;
+}
+
+.edu-block,
+.exp-block,
+.proj-block {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: clamp(0.8rem, 2vw, 1.5rem);
+  margin-bottom: clamp(1rem, 3vw, 2rem);
+  align-items: flex-start;
+}
+
+.edu-details,
+.exp-details,
+.proj-details {
+  flex: 1 1 clamp(250px, 60%, 600px);
+}
+
+.edu-dates,
+.exp-dates,
+.proj-dates {
+  flex: 0 0 auto;
+  font-weight: 600;
+  white-space: nowrap;
+  color: #1e88e5;
+  font-size: clamp(0.85rem, 2.5vw, 1rem);
+}
+
+ul {
+  padding-left: clamp(1rem, 3vw, 1.5rem);
+  margin: clamp(0.3rem, 1vw, 0.8rem) 0;
+}
+
+li {
+  margin-bottom: clamp(0.2rem, 1vw, 0.5rem);
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  line-height: 1.6;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(0.5rem, 1vw, 1rem);
+  margin-top: clamp(0.5rem, 1vh, 1rem);
+}
+
+.skill-tag {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: clamp(0.4rem, 1vh, 0.8rem) clamp(0.8rem, 2vw, 1.5rem);
+  border-radius: clamp(0.8rem, 2vw, 1.5rem);
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+  text-decoration: none;
+  display: inline-block;
+}
+
+.skill-tag:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(102, 126, 234, 0.5);
+  background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+}
+
+.skill-tag:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+/* Responsive breakpoints */
+@media (max-width: 768px) {
+  .resume {
+    margin: clamp(3rem, 6vh, 4rem) auto clamp(1.5rem, 3vh, 2rem);
+    padding: 0 clamp(0.8rem, 3vw, 1.5rem);
+  }
+  
+  header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: clamp(1rem, 3vw, 1.5rem);
+  }
+  
+  .header-left {
+    min-width: auto;
+    width: 100%;
+  }
+  
+  .edu-block,
+  .exp-block,
+  .proj-block {
+    flex-direction: column;
+    gap: clamp(0.5rem, 2vw, 1rem);
+  }
+  
+  .edu-dates,
+  .exp-dates,
+  .proj-dates {
+    margin-left: 0;
+    font-size: clamp(0.8rem, 2.5vw, 0.95rem);
+    color: #666;
+  }
+  
+  .skills-list {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .resume {
+    margin: clamp(2.5rem, 5vh, 3rem) auto clamp(1rem, 2vh, 1.5rem);
+    padding: 0 clamp(0.5rem, 2vw, 1rem);
+  }
+  
+  header {
+    padding: clamp(1rem, 3vw, 1.5rem) 0;
+  }
+  
+  .photo-box {
+    width: clamp(70px, 20vw, 100px);
+    height: clamp(100px, 30vw, 140px);
+  }
+  
+  section {
+    padding: clamp(0.8rem, 2.5vw, 1.5rem) 0;
+    margin-bottom: clamp(1rem, 3vw, 2rem);
+  }
+  
+  .skills-list span {
+    font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+    padding: clamp(0.25rem, 1vw, 0.5rem) clamp(0.5rem, 1.5vw, 0.8rem);
+  }
+}
