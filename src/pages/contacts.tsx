@@ -3,6 +3,7 @@ import { useState } from 'react';
 
 export default function Contacts() {
   const [copied, setCopied] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
   const email = "alexzhaolixiuqi@gmail.com";
   const phone = "+65 83514349";
 
@@ -14,10 +15,27 @@ export default function Contacts() {
       });
   }
 
+  function handleImageClick() {
+    setShowPopup(true);
+  }
+
+  function handleClosePopup() {
+    setShowPopup(false);
+  }
+
   return (
     <div className="contacts-page-bg">
       <div className="contact-card">
-        <Image src="/photo1.jpg" alt="Alex Zhao" className="contact-photo" width={120} height={120} style={{ objectFit: 'cover', borderRadius: '50%' }} />
+        <Image
+          src="/photo1.jpg"
+          alt="Alex Zhao"
+          className="contact-photo"
+          width={120}
+          height={120}
+          style={{ objectFit: 'cover', borderRadius: '50%', cursor: 'pointer' }}
+          onClick={handleImageClick}
+          title="Click me!"
+        />
         <h2 className="contact-name">Alex Zhao</h2>
         <p className="contact-role">Let&apos;s connect!</p>
         <div className="contact-info">
@@ -49,6 +67,19 @@ export default function Contacts() {
       {copied && (
         <div className="toast-copied">
           Copied to clipboard!
+        </div>
+      )}
+      {showPopup && (
+        <div className="popup-overlay" onClick={handleClosePopup}>
+          <div className="popup-message" onClick={e => e.stopPropagation()}>
+            <button className="popup-close" onClick={handleClosePopup}>&times;</button>
+            <span>
+              <h2><b>HIRE ME BECAUSE:</b></h2><br />
+              1. I still have a pool of brain cells to contribute;<br />
+              2. I am willing to over work (if it&apos;s properly paid);<br />
+              3. I have no gf commitment and can work extra long;
+            </span>
+          </div>
         </div>
       )}
     </div>
