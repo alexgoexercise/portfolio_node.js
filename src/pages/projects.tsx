@@ -2,7 +2,7 @@
 import '../pages/Projects.css';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 // @ts-ignore
 const Slider: any = dynamic(() => import('react-slick'), { ssr: false });
@@ -77,8 +77,6 @@ export default function Projects() {
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: true,
-    centerMode: true,
-    centerPadding: "0px",
     adaptiveHeight: true,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
@@ -95,18 +93,34 @@ export default function Projects() {
         <div key={idx} className="project-card">
           <h2>{project.title}</h2>
           <p>{project.description}</p>
-          <Slider {...sliderSettings} className="project-slider">
-            {project.images.map((img, index) => (
-              <div key={index} className="slide-img" style={{width: "auto"}}>
-                <Image src={img} alt={`Slide ${index}`} width={400} height={300} style={{ width: '100%', height: 'auto', borderRadius: 'inherit' }} />
-              </div>
-            ))}
-          </Slider>
+          <div className="slider-wrapper" style={{ position: 'relative' }}>
+            <Slider {...sliderSettings}>
+              {project.images.map((img, index) => (
+                <div key={index}>
+                  <img
+                    src={img}
+                    alt={`Slide ${index}`}
+                    style={{
+                      height: '100%',
+                      width: 'auto',
+                      maxWidth: '100%',
+                      objectFit: 'contain',
+                      borderRadius: '12px',
+                      display: 'block',
+                      margin: '0 auto',
+                      background: '#f8f8f8',
+                    }}
+                    draggable={false}
+                  />
+                </div>
+              ))}
+            </Slider>
+          </div>
           <div className="tags">
             {project.tags.map((tag, i) => (
-              <button 
-                key={i} 
-                className="tag" 
+              <button
+                key={i}
+                className="skill-tag"
                 onClick={() => handleTagClick(tag)}
                 title={`Search for ${tag} on Google`}
               >

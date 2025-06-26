@@ -57,7 +57,7 @@ export default function About() {
               <li>Planning to graduate in Dec 2026</li>
             </ul>
           </div>
-          <div className="edu-dates">Aug 2025 - Dec 2026 (planned)</div>
+          <div className="edu-dates">Aug 2025 - Dec 2026 (Expected)</div>
         </div>
       </section>
 
@@ -107,12 +107,12 @@ export default function About() {
       <section className="skills">
         <h3>SKILLS</h3>
         <div className="skills-list">
-          <button onClick={() => handleSkillClick("Embedded System")} className="skill-tag">Embedded System</button>
-          <button onClick={() => handleSkillClick("Computer Vision")} className="skill-tag">Computer Vision</button>
-          <button onClick={() => handleSkillClick("Machine Learning")} className="skill-tag">Machine Learning</button>
-          <button onClick={() => handleSkillClick("Java Python C C++")} className="skill-tag">Java, Python, C, C++</button>
-          <button onClick={() => handleSkillClick("Robotics")} className="skill-tag">Robotics</button>
-          <button onClick={() => handleSkillClick("Software Development")} className="skill-tag">Software Development</button>
+          <button onClick={() => handleSkillClick("Embedded System")} className="skill-tag" title = "I grinded this since year 1">Embedded System</button>
+          <button onClick={() => handleSkillClick("Computer Vision")} className="skill-tag" title = "cv is hard...">Computer Vision</button>
+          <button onClick={() => handleSkillClick("Machine Learning")} className="skill-tag" title = "not as strong a skills from me but I know the basics">Machine Learning</button>
+          <button onClick={() => handleSkillClick("Java Python C C++")} className="skill-tag" title = "I can only do leetcode in Cpp">Java, Python, C, C++</button>
+          <button onClick={() => handleSkillClick("Robotics")} className="skill-tag" title = "Currently grinding robotics">Robotics</button>
+          <button onClick={() => handleSkillClick("Software Development")} className="skill-tag" title = "I build this website to learn full stack">Software Development</button>
         </div>
       </section>
     </div>
