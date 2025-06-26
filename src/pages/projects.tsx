@@ -1,6 +1,5 @@
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
-import type { ReactElement } from 'react';
 
 const Slider = dynamic(() => import('react-slick'), { ssr: false });
 

@@ -46,7 +46,7 @@ export default function Home() {
               { name: 'Python', level: 70},
               { name: 'JavaScript', level: 40 },
               { name: 'FPGA programming', level: 30 },
-              { name: 'embedded system development', level: 90 },
+              { name: 'Embedded System Development', level: 90 },
               { name: 'React', level: 30 },
             ].map((skill) => (
               <div className="skill-item" key={skill.name}>
