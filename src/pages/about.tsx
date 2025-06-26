@@ -1,4 +1,3 @@
-import '../pages/About.css';
 import Image from 'next/image';
 
 export default function About() {
