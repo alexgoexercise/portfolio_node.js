@@ -1,5 +1,3 @@
-import Head from "next/head";
-import Image from "next/image";
 import homeContent from '../content/homeContent';
 import '../pages/Home.css';
 import { useState } from 'react';
@@ -31,8 +29,8 @@ export default function Home() {
             <Link href="/about">{homeContent.about.heading}</Link>
           </h2>
           <div>
-            {homeContent.about.content.map((line, index) => (
-              <p key={index}>{line}</p>
+            {homeContent.about.content.map((line, idx) => (
+              <p key={idx}>{line}</p>
             ))}
           </div>
         </section>
@@ -51,8 +49,8 @@ export default function Home() {
               { name: 'FPGA programming', level: 30 },
               { name: 'embedded system development', level: 90 },
               { name: 'React', level: 30 },
-            ].map((skill, index) => (
-              <div className="skill-item">
+            ].map((skill, idx) => (
+              <div className="skill-item" key={skill.name}>
                 <span className="skill-name">{skill.name}</span>
                 <div className="skill-bar">
                   <div className="skill-fill" style={{ width: `${skill.level}%` }}></div>
@@ -69,7 +67,7 @@ export default function Home() {
           <p>
             Email: <span id="email">alexzhaolixiuqi@gmail.com</span>
             <button onClick={handleCopyEmail} className="copy-btn">Copy</button>
-            {copied && <span className="copied-message">✔ Copied!</span>}
+            {copied && <span className="copied-message">&#10003; Copied!</span>}
           </p>
           <p className="social-links">
             <a href="https://www.linkedin.com/in/zhao-lixiuqi-73420926b" target="_blank" rel="noopener noreferrer" title="HIRE MEEEEEE">LinkedIn</a> |

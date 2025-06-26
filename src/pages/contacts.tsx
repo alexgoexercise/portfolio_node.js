@@ -20,7 +20,7 @@ export default function Contacts() {
       <div className="contact-card">
         <Image src="/photo1.jpg" alt="Alex Zhao" className="contact-photo" width={120} height={120} style={{ objectFit: 'cover', borderRadius: '50%' }} />
         <h2 className="contact-name">Alex Zhao</h2>
-        <p className="contact-role">Let's connect!</p>
+        <p className="contact-role">Let&apos;s connect!</p>
         <div className="contact-info">
           <div className="contact-row">
             <span className="contact-label">Email:</span>
