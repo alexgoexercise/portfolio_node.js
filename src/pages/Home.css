@@ -139,8 +139,22 @@
   border-radius: 6px;
 }
 
+.contact {
+  background: rgba(255,255,255,0.95);
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(30,136,229,0.08);
+  padding: 2rem 1rem;
+  margin-top: 2rem;
+  /* Add any other styles you want */
+}
+
+
 /* Contact text */
 .contact p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
   font-weight: 500;
   color: #444;
   font-size: clamp(1rem, 2.5vw, 1.1rem);
@@ -149,8 +163,8 @@
 }
 
 .copy-btn {
-  margin-left: clamp(0.7rem, 2vw, 1.2rem);
-  padding: clamp(0.3rem, 1vw, 0.5rem) clamp(0.6rem, 2vw, 1rem);
+  margin-left: clamp(2rem, 6vw, 3rem);
+  padding: clamp(0.3rem, 2vw, 0.5rem) clamp(0.6rem, 2vw, 1rem);
   font-size: clamp(0.8rem, 2vw, 1rem);
   background-color: #5cb1fb;
   color: white;

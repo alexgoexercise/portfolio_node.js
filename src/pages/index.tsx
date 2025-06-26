@@ -46,7 +46,7 @@ export default function Home() {
               { name: 'Python', level: 70},
               { name: 'JavaScript', level: 40 },
               { name: 'FPGA programming', level: 30 },
-              { name: 'Embedded System Development', level: 90 },
+              { name: 'embedded system development', level: 90 },
               { name: 'React', level: 30 },
             ].map((skill) => (
               <div className="skill-item" key={skill.name}>
@@ -66,7 +66,6 @@ export default function Home() {
           <p>
             Email: <span id="email">alexzhaolixiuqi@gmail.com</span>
             <button onClick={handleCopyEmail} className="copy-btn">Copy</button>
-            {copied && <span className="copied-message">&#10003; Copied!</span>}
           </p>
           <p className="social-links">
             <a href="https://www.linkedin.com/in/zhao-lixiuqi-73420926b" target="_blank" rel="noopener noreferrer" title="HIRE MEEEEEE">LinkedIn</a> |
@@ -76,6 +75,11 @@ export default function Home() {
           </p>
         </section>
       </div>
+      {copied && (
+        <div className="toast-copied">
+          Copied to clipboard!
+        </div>
+      )}
     </>
   );
 }
