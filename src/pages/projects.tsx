@@ -12,14 +12,19 @@ const Pro3 = '/Pro3.jpg';
 const Pro4 = '/Pro4.jpg';
 const rtos1 = '/rtos1.jpg';
 const rtos2 = '/rtos2.jpg';
+const Port1 = '/Portfolio1.jpg';
+const Port2 = '/Portfolio2.jpg';
 
 type ArrowProps = {
   className?: string;
   onClick?: () => void;
+  currentSlide?: number;
+  slideCount?: number;
 };
 
 function NextArrow(props: ArrowProps) {
-  const { className, onClick } = props;
+  const { className, onClick, currentSlide = 0, slideCount = 0 } = props;
+  if (currentSlide >= (slideCount - 1)) return null;
   return (
     <div
       className={`custom-arrow next-arrow slick-arrow ${className || ""}`}
@@ -34,7 +39,8 @@ function NextArrow(props: ArrowProps) {
 }
 
 function PrevArrow(props: ArrowProps) {
-  const { className, onClick } = props;
+  const { className, onClick, currentSlide = 0 } = props;
+  if (currentSlide === 0) return null;
   return (
     <div
       className={`custom-arrow prev-arrow slick-arrow ${className || ""}`}
@@ -63,8 +69,6 @@ type SliderSettings = {
   slidesToScroll: number;
   arrows: boolean;
   adaptiveHeight: boolean;
-  nextArrow: ReactElement;
-  prevArrow: ReactElement;
 };
 
 export default function Projects() {
@@ -88,6 +92,15 @@ export default function Projects() {
         rtos2,
       ],
       tags: ["RTOS", "Embedded C", "ARM"]
+    },
+    {
+      title: "Personal Website",
+      description: "Personal Website built with node.js + react tech stack.",
+      images:[
+        Port1,
+        Port2,
+      ],
+      tags: ["node.js", "react", "typescript", "vercel"]
     }
   ];
 
@@ -99,8 +112,6 @@ export default function Projects() {
     slidesToScroll: 1,
     arrows: true,
     adaptiveHeight: true,
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
   };
 
   const handleTagClick = (tag: string) => {
@@ -115,7 +126,11 @@ export default function Projects() {
           <h2>{project.title}</h2>
           <p>{project.description}</p>
           <div className="slider-wrapper" style={{ position: 'relative' }}>
-            <Slider {...sliderSettings}>
+            <Slider
+              {...sliderSettings}
+              nextArrow={<NextArrow />}
+              prevArrow={<PrevArrow />}
+            >
               {project.images.map((img, index) => (
                 <div key={index}>
                   <Image
