@@ -29,8 +29,8 @@ export default function Home() {
             <Link href="/about">{homeContent.about.heading}</Link>
           </h2>
           <div>
-            {homeContent.about.content.map((line, idx) => (
-              <p key={idx}>{line}</p>
+            {homeContent.about.content.map((line) => (
+              <p key={line}>{line}</p>
             ))}
           </div>
         </section>
@@ -49,7 +49,7 @@ export default function Home() {
               { name: 'FPGA programming', level: 30 },
               { name: 'embedded system development', level: 90 },
               { name: 'React', level: 30 },
-            ].map((skill, idx) => (
+            ].map((skill) => (
               <div className="skill-item" key={skill.name}>
                 <span className="skill-name">{skill.name}</span>
                 <div className="skill-bar">

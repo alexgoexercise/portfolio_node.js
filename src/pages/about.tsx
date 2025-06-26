@@ -25,8 +25,8 @@ export default function About() {
       <section className="summary">
         <h3>SUMMARY</h3>
         <p>
-          Motivated and disciplined student with a Bachelor's degree in Computer Engineering from NUS,
-          currently pursuing a Master's in the same field with a specialization in Machine Intelligence.
+          Motivated and disciplined student with a Bachelor&apos;s degree in Computer Engineering from NUS,
+          currently pursuing a Master&apos;s in the same field with a specialization in Machine Intelligence.
           Strong self-learner with a proven ability to explore new domains and adapt quickly to diverse tasks.
           Experienced in <strong>embedded systems development</strong>, <strong>robotics</strong>, and
           <strong> software development</strong>. Fluent in English and Mandarin, and well-versed in
