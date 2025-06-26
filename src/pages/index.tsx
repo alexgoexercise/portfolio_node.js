@@ -1,5 +1,4 @@
 import homeContent from '../content/homeContent';
-import '../pages/Home.css';
 import { useState } from 'react';
 import Link from 'next/link';
 
