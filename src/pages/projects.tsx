@@ -1,11 +1,9 @@
-// @ts-ignore
 import '../pages/Projects.css';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
-import { useState, useRef } from 'react';
+import type { ReactElement } from 'react';
 
-// @ts-ignore
-const Slider: any = dynamic(() => import('react-slick'), { ssr: false });
+const Slider = dynamic(() => import('react-slick'), { ssr: false });
 
 const rightArrow = '/right-arrow-circle-svgrepo-com.svg';
 const leftArrow = '/left-arrow-circle-svgrepo-com.svg';
@@ -16,7 +14,12 @@ const Pro4 = '/Pro4.jpg';
 const rtos1 = '/rtos1.jpg';
 const rtos2 = '/rtos2.jpg';
 
-function NextArrow(props: any) {
+type ArrowProps = {
+  className?: string;
+  onClick?: () => void;
+};
+
+function NextArrow(props: ArrowProps) {
   const { className, onClick } = props;
   return (
     <div
@@ -31,7 +34,7 @@ function NextArrow(props: any) {
   );
 }
 
-function PrevArrow(props: any) {
+function PrevArrow(props: ArrowProps) {
   const { className, onClick } = props;
   return (
     <div
@@ -46,8 +49,27 @@ function PrevArrow(props: any) {
   );
 }
 
+type Project = {
+  title: string;
+  description: string;
+  images: string[];
+  tags: string[];
+};
+
+type SliderSettings = {
+  dots: boolean;
+  infinite: boolean;
+  speed: number;
+  slidesToShow: number;
+  slidesToScroll: number;
+  arrows: boolean;
+  adaptiveHeight: boolean;
+  nextArrow: ReactElement;
+  prevArrow: ReactElement;
+};
+
 export default function Projects() {
-  const projects = [
+  const projects: Project[] = [
     {
       title: "AR Laser Tag++",
       description: "Wearable system with gun, vest, and sensors for AR gaming. Built with Arduino and trained ML model on sensor data.",
@@ -70,7 +92,7 @@ export default function Projects() {
     }
   ];
 
-  const sliderSettings = {
+  const sliderSettings: SliderSettings = {
     dots: true,
     infinite: true,
     speed: 500,
@@ -89,17 +111,19 @@ export default function Projects() {
 
   return (
     <div className="project-container">
-      {projects.map((project, idx) => (
-        <div key={idx} className="project-card">
+      {projects.map((project) => (
+        <div key={project.title} className="project-card">
           <h2>{project.title}</h2>
           <p>{project.description}</p>
           <div className="slider-wrapper" style={{ position: 'relative' }}>
             <Slider {...sliderSettings}>
               {project.images.map((img, index) => (
                 <div key={index}>
-                  <img
+                  <Image
                     src={img}
                     alt={`Slide ${index}`}
+                    width={600}
+                    height={400}
                     style={{
                       height: '100%',
                       width: 'auto',
@@ -117,9 +141,9 @@ export default function Projects() {
             </Slider>
           </div>
           <div className="tags">
-            {project.tags.map((tag, i) => (
+            {project.tags.map((tag) => (
               <button
-                key={i}
+                key={tag}
                 className="skill-tag"
                 onClick={() => handleTagClick(tag)}
                 title={`Search for ${tag} on Google`}
