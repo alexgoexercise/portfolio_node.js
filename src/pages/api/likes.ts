@@ -1,9 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { Redis } from '@upstash/redis';
 
+// Use the KV_ environment variables from your Vercel integration
 const redis = new Redis({
-  url: process.env.UPSTASH_REST_URL!,
-  token: process.env.UPSTASH_REST_TOKEN!,
+  url: process.env.KV_REST_API_URL!,
+  token: process.env.KV_REST_API_TOKEN!,
 });
 
 const KEY = 'likes';
@@ -21,4 +22,4 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     res.setHeader('Allow', ['GET', 'POST']);
     res.status(405).end(`Method ${req.method} Not Allowed`);
   }
-} 
+}
