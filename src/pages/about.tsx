@@ -88,8 +88,8 @@ export default function About() {
             <strong>Continental Automotive SG Pte Ltd</strong><br />
             Worked with design teams and senior software engineers to build the food delivery robot.<br />
             <ul>
-              <li>Utilised ROS, Docker and OpenCV to design solutions for robot perception related issues</li>
-              <li>Performed data collection and LiDAR - Camera Calibration</li>
+              <li>Utilised ROS, Docker and OpenCV to design solutions for robot perception related issues.</li>
+              <li>Performed data collection and LiDAR - Camera Calibration to improve the accuracy of robot perception.</li>
               <li>Partnered with team members to conduct daily road tests and participated in the product demo to investors.</li>
             </ul>
           </div>
@@ -106,7 +106,7 @@ export default function About() {
             <ul>
               <li>Designed, tested and maintained the wearable systems of the AR Laser Tag game including the gun, vest and motion sensor unit.</li>
               <li>Applied knowledge in Arduino, circuit design and soldering to complete the hardware design.</li>
-              <li>Performed data collection to collect user data to train the ML model.</li>
+              <li>Performed data collection to collect user data to train the ML model such that the users are able to perform special attacks triggered by special movements.</li>
             </ul>
           </div>
           <div className="proj-dates">2024</div>

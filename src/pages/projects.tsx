@@ -9,8 +9,10 @@ const Pro1 = '/Pro1.jpg';
 const Pro2 = '/Pro2.jpg';
 const Pro3 = '/Pro3.jpg';
 const Pro4 = '/Pro4.jpg';
+const Pro5 = '/Pro5.jpg';
 const rtos1 = '/rtos1.jpg';
 const rtos2 = '/rtos2.jpg';
+const rtos3 = '/rtos3.jpg';
 const Port1 = '/Portfolio1.jpg';
 const Port2 = '/Portfolio2.jpg';
 
@@ -55,7 +57,7 @@ function PrevArrow(props: ArrowProps) {
 
 type Project = {
   title: string;
-  description: string;
+  description: string | string[];
   images: string[];
   tags: string[];
 };
@@ -74,21 +76,29 @@ export default function Projects() {
   const projects: Project[] = [
     {
       title: "AR Laser Tag++",
-      description: "Wearable system with gun, vest, and sensors for AR gaming. Built with Arduino and trained ML model on sensor data.",
+      description: [
+        "Developed wearable system with gun, vest, and sensors for AR gaming.",
+        "The hardware logic is built based on Arduino (IR transimission between the gun and vest for shooting, LED flashing for health display and so on), then is integrated with socket programming (in charge by my other teammate) to communicate with the host machine.",
+        "The game supports up to 2 players, each players can perform special attack or simply shoot from the 'hand gun' to deal damage to the opponent."
+      ],
       images: [
         Pro1,
         Pro2,
         Pro3,
         Pro4,
+        Pro5,
       ],
       tags: ["Arduino", "Machine Learning", "Hardware Design"]
     },
     {
       title: "RTOS Car Racing",
-      description: "RTOS built for ARM-based autonomous robot car in race conditions.",
+      description: ["Utilised an RTOS to develop an ARM-based autonomous robotic car under competitive race conditions.",
+        "Finished among the higher-ranking competitors in the final race."
+      ],
       images: [
         rtos1,
         rtos2,
+        rtos3,
       ],
       tags: ["RTOS", "Embedded C", "ARM"]
     },
@@ -123,7 +133,11 @@ export default function Projects() {
       {projects.map((project) => (
         <div key={project.title} className="project-card">
           <h2>{project.title}</h2>
-          <p>{project.description}</p>
+          <p>
+            {Array.isArray(project.description)
+              ? project.description.map((line, idx) => <div key={idx}>{line}</div>)
+              : project.description}
+          </p>
           <div className="slider-wrapper" style={{ position: 'relative' }}>
             <Slider
               {...sliderSettings}
