@@ -1,11 +1,21 @@
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Contacts() {
   const [copied, setCopied] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
+  const [likes, setLikes] = useState(0);
+  const [isLiking, setIsLiking] = useState(false);
   const email = "alexzhaolixiuqi@gmail.com";
   const phone = "+65 83514349";
+
+  // Load likes on component mount
+  useEffect(() => {
+    fetch('/api/likes')
+      .then(res => res.json())
+      .then(data => setLikes(data.likes))
+      .catch(err => console.error('Error loading likes:', err));
+  }, []);
 
   function handleCopyEmail() {
     navigator.clipboard.writeText(email)
@@ -23,6 +33,29 @@ export default function Contacts() {
     setShowPopup(false);
   }
 
+  async function handleLike() {
+    if (isLiking) return; // Prevent multiple clicks
+    
+    setIsLiking(true);
+    try {
+      const response = await fetch('/api/likes', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      
+      if (response.ok) {
+        const data = await response.json();
+        setLikes(data.likes);
+      }
+    } catch (error) {
+      console.error('Error updating likes:', error);
+    } finally {
+      setIsLiking(false);
+    }
+  }
+
   return (
     <div className="contacts-page-bg">
       <div className="contact-card">
@@ -38,6 +71,19 @@ export default function Contacts() {
         />
         <h2 className="contact-name">Alex Zhao</h2>
         <p className="contact-role">Let&apos;s connect!</p>
+        
+        {/* Like Button */}
+        <div className="like-section">
+          <button 
+            className="like-button" 
+            onClick={handleLike}
+            disabled={isLiking}
+            title="Like my portfolio!"
+          >
+            ❤️ {likes}
+          </button>
+        </div>
+
         <div className="contact-info">
           <div className="contact-row">
             <span className="contact-label">Email:</span>
