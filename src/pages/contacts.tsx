@@ -150,11 +150,12 @@ export default function Contacts() {
             <button className="popup-close" onClick={() => setShowWeChat(false)}>&times;</button>
             <span style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
               <h4><b>Scan to add me on WeChat</b></h4>
-              <img
-                src="/wechatQRcode.jpg"
+              <Image
+                src="/wechat-qr.png"
                 alt="WeChat QR Code"
+                width={220}
+                height={220}
                 style={{
-                  width: '220px',
                   maxWidth: '90vw',
                   height: 'auto',
                   borderRadius: '12px',
