@@ -151,7 +151,7 @@ export default function Contacts() {
             <span style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
               <h4><b>Scan to add me on WeChat</b></h4>
               <Image
-                src="/wechat-qr.png"
+                src="/wechatQRcode.jpg"
                 alt="WeChat QR Code"
                 width={220}
                 height={220}
