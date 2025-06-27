@@ -1,21 +1,20 @@
 import Image from 'next/image';
 import { useState } from 'react';
 
-const [showPopup, setShowPopup] = useState(false);
-
-function handleImageClick() {
-  setShowPopup(true);
-}
-
-function handleClosePopup() {
-  setShowPopup(false);
-}
-
 export default function About() {
+  const [showPopup, setShowPopup] = useState(false);
   const handleSkillClick = (skill: string) => {
     const searchQuery = encodeURIComponent(skill);
     window.open(`https://www.google.com/search?q=${searchQuery}`, '_blank');
   };
+
+  function handleImageClick() {
+    setShowPopup(true);
+  }
+
+  function handleClosePopup() {
+    setShowPopup(false);
+  }
 
   return (
     <div className="resume">
@@ -32,7 +31,9 @@ export default function About() {
             onClick={handleImageClick}
             width={120} 
             height={180} 
-            style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 'inherit' }} />
+            style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 'inherit', cursor: 'pointer'}} 
+            title="click me!"
+            />
           </div>
         </div>
       </header>
