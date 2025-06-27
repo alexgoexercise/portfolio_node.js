@@ -4,8 +4,7 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        {/* Font Awesome Kit */}
-        <script src="https://kit.fontawesome.com/ec69074f3c.js" crossOrigin="anonymous"></script>
+        {/* Font Awesome Kit removed to avoid sync script error */}
       </Head>
       <body>
         <Main />
