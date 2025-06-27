@@ -57,7 +57,7 @@
 .hero p {
   font-size: clamp(1rem, 3vw, 1.4rem);
   margin-top: clamp(0.5rem, 2vw, 1rem);
-  background: linear-gradient(125deg, #349cf7, #ffffff);
+  background: #349cf7;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -98,19 +98,19 @@
 /* Skills list */
 .skill-list {
   display: flex;
-  flex-direction: column;
-  gap: clamp(0.8rem, 2vw, 1.5rem);
+  flex-wrap: wrap;
+  gap: clamp(0.5rem, 1vw, 1rem);
   padding: 0 clamp(1rem, 3vw, 2rem);
   max-width: 800px;
   margin: 0 auto;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .skill-item {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  margin-bottom: 1.5rem;
-  flex-direction: row;
+  display: block;
+  margin-bottom: 0;
+  padding: 0;
 }
 
 .skill-name {
@@ -121,7 +121,7 @@
 }
 
 .skill-bar {
-  width: 80%;
+  flex: 1;
   min-width: 100px;
   max-width: 900px;
   height: 12px;
@@ -130,6 +130,8 @@
   overflow: hidden;
   box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
   margin: 0.5rem 0;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .skill-fill {
@@ -258,4 +260,31 @@
   .contact p {
     word-break: break-word;
   }
+}
+
+.skill-tag {
+  background: linear-gradient(135deg, #259dff 0%, #8dc5f6 100%);
+  color: white;
+  padding: clamp(0.4rem, 1vh, 0.8rem) clamp(0.8rem, 2vw, 1.5rem);
+  border-radius: clamp(0.8rem, 2vw, 1.5rem);
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(37, 157, 255, 0.15);
+  text-decoration: none;
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+.skill-tag:hover {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 4px 16px rgba(37, 157, 255, 0.25);
+  background: linear-gradient(135deg, #1e88e5 0%, #64b5f6 100%);
+}
+
+.skill-tag:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
 }

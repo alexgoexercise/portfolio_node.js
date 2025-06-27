@@ -1,6 +1,7 @@
 import homeContent from '../content/homeContent';
 import { useState } from 'react';
 import Link from 'next/link';
+import { skills } from '../content/skills';
 
 export default function Home() {
   const [copied, setCopied] = useState(false);
@@ -39,23 +40,34 @@ export default function Home() {
             <Link href="/projects">{homeContent.skills.heading}</Link>
           </h2>
           <div className="skill-list">
-            {[
-              { name: 'Java', level: 80 },
-              { name: 'C', level: 65 },
-              { name: 'C++', level: 90 },
-              { name: 'Python', level: 70},
-              { name: 'JavaScript', level: 40 },
-              { name: 'FPGA programming', level: 30 },
-              { name: 'embedded system development', level: 90 },
-              { name: 'React', level: 30 },
-            ].map((skill) => (
-              <div className="skill-item" key={skill.name}>
-                <span className="skill-name">{skill.name}</span>
-                <div className="skill-bar">
-                  <div className="skill-fill" style={{ width: `${skill.level}%` }}></div>
-                </div>
-              </div>
-            ))}
+            {skills
+              .sort((a, b) => b.level - a.level)
+              .map((skill) => {
+                // Interpolate between two gradients based on skill level
+                // 0%: #b3b8f8 to #b39ddb (light), 100%: #667eea to #764ba2 (dark)
+                const lightStart = [179, 184, 248]; // #b3b8f8
+                const lightEnd = [179, 157, 219];  // #b39ddb
+                const darkStart = [102, 126, 234]; // #667eea
+                const darkEnd = [118, 75, 162];    // #764ba2
+                const t = skill.level / 100;
+                const lerp = (a: number, b: number) => Math.round(a + (b - a) * t);
+                const startColor = `rgb(${lerp(lightStart[0], darkStart[0])},${lerp(lightStart[1], darkStart[1])},${lerp(lightStart[2], darkStart[2])})`;
+                const endColor = `rgb(${lerp(lightEnd[0], darkEnd[0])},${lerp(lightEnd[1], darkEnd[1])},${lerp(lightEnd[2], darkEnd[2])})`;
+                return (
+                  <div className="skill-item" key={skill.name}>
+                    <button
+                      className="skill-tag"
+                      style={{
+                        background: `linear-gradient(135deg, ${startColor} 0%, ${endColor} 100%)`
+                      }}
+                      onClick={() => window.open(`https://www.google.com/search?q=${encodeURIComponent(skill.name)}`, '_blank')}
+                      title={`Search for ${skill.name}`}
+                    >
+                      {skill.name}
+                    </button>
+                  </div>
+                );
+              })}
           </div>
         </section>
 
@@ -64,8 +76,13 @@ export default function Home() {
             <Link href="/contacts">{homeContent.contact.heading}</Link>
           </h2>
           <p>
-            Email: <span id="email">alexzhaolixiuqi@gmail.com</span>
+            <span id="email">
+            Email:  alexzhaolixiuqi@gmail.com
+            </span>
             <button onClick={handleCopyEmail} className="copy-btn">Copy</button>
+          </p>
+          <p>
+            Phone: +65 83514349 (Sg)
           </p>
           <p className="social-links">
             <a href="https://www.linkedin.com/in/zhao-lixiuqi-73420926b" target="_blank" rel="noopener noreferrer" title="HIRE MEEEEEE">LinkedIn</a> |

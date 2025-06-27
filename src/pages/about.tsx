@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { useState } from 'react';
+import { skills } from '../content/skills';
 
 export default function About() {
   const [showPopup, setShowPopup] = useState(false);
@@ -40,14 +41,17 @@ export default function About() {
 
       <section className="summary">
         <h3>SUMMARY</h3>
-        <p>
-          Motivated and disciplined student with a Bachelor&apos;s degree in Computer Engineering from NUS,
-          currently pursuing a Master&apos;s in the same field with a specialization in Machine Intelligence.
-          Strong self-learner with a proven ability to explore new domains and adapt quickly to diverse tasks.
-          Experienced in <strong>embedded systems development</strong>, <strong>robotics</strong>, and
-          <strong> software development</strong>. Fluent in English and Mandarin, and well-versed in
-          collaborating with cross-cultural, global teams.
-        </p>
+          <p>
+          Motivated and disciplined Computer Engineering professional with a Bachelor&apos;s 
+          degree from the National University of Singapore and currently pursuing a 
+          Master&apos;s specialization in Machine Intelligence. A strong self-learner with a 
+          demonstrated ability to master new domains and deliver results across diverse 
+          technical challenges. Experienced in <strong>embedded systems development</strong>, <strong>robotics</strong> , and <strong>full-stack development</strong>. 
+          Fluent in English and Mandarin, with a proven track record of effective collaboration 
+          within cross-cultural, global teams. Committed to driving innovation 
+          and excellence in every project.
+          </p>
+
       </section>
 
       <section className="education">
@@ -123,12 +127,16 @@ export default function About() {
       <section className="skills">
         <h3>SKILLS</h3>
         <div className="skills-list">
-          <button onClick={() => handleSkillClick("Embedded System")} className="skill-tag" title = "I grinded this since year 1">Embedded System</button>
-          <button onClick={() => handleSkillClick("Computer Vision")} className="skill-tag" title = "cv is hard...">Computer Vision</button>
-          <button onClick={() => handleSkillClick("Machine Learning")} className="skill-tag" title = "not as strong a skills from me but I know the basics">Machine Learning</button>
-          <button onClick={() => handleSkillClick("Java Python C C++")} className="skill-tag" title = "I can only do leetcode in Cpp">Java, Python, C, C++</button>
-          <button onClick={() => handleSkillClick("Robotics")} className="skill-tag" title = "Currently grinding robotics">Robotics</button>
-          <button onClick={() => handleSkillClick("Software Development")} className="skill-tag" title = "I build this website to learn full stack">Software Development</button>
+          {skills.sort((a, b) => b.level - a.level).map(skill => (
+            <button
+              key={skill.name}
+              onClick={() => handleSkillClick(skill.name)}
+              className="skill-tag"
+              title={`Search for ${skill.name}`}
+            >
+              {skill.name}
+            </button>
+          ))}
         </div>
       </section>
 
