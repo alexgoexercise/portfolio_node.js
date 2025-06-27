@@ -3,8 +3,8 @@ import Image from 'next/image';
 
 const Slider = dynamic(() => import('react-slick'), { ssr: false });
 
-const rightArrow = '/right-arrow-circle-svgrepo-com.svg';
-const leftArrow = '/left-arrow-circle-svgrepo-com.svg';
+const RightArrow = '/right-arrow-circle-svgrepo-com.svg';
+const LeftArrow = '/left-arrow-circle-svgrepo-com.svg';
 const Pro1 = '/Pro1.jpg';
 const Pro2 = '/Pro2.jpg';
 const Pro3 = '/Pro3.jpg';
@@ -32,7 +32,7 @@ function NextArrow(props: ArrowProps) {
       role="button"
       tabIndex={0}
     >
-      <Image src={rightArrow} alt="Next" width={36} height={36} style={{ width: '2.2em', height: '2.2em' }} />
+      <Image src={RightArrow} alt="Next" width={36} height={36} style={{ width: '2.2em', height: '2.2em' }} />
     </div>
   );
 }
@@ -48,7 +48,7 @@ function PrevArrow(props: ArrowProps) {
       role="button"
       tabIndex={0}
     >
-      <Image src={leftArrow} alt="Previous" width={36} height={36} style={{ width: '2.2em', height: '2.2em' }} />
+      <Image src={LeftArrow} alt="Previous" width={36} height={36} style={{ width: '2.2em', height: '2.2em' }} />
     </div>
   );
 }

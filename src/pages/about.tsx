@@ -1,4 +1,15 @@
 import Image from 'next/image';
+import { useState } from 'react';
+
+const [showPopup, setShowPopup] = useState(false);
+
+function handleImageClick() {
+  setShowPopup(true);
+}
+
+function handleClosePopup() {
+  setShowPopup(false);
+}
 
 export default function About() {
   const handleSkillClick = (skill: string) => {
@@ -16,7 +27,12 @@ export default function About() {
         </div>
         <div className="header-photo">
           <div className="photo-box">
-            <Image src="/photo1.jpg" alt="Alex Zhao's Photo" width={120} height={180} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 'inherit' }} />
+            <Image src="/photo1.jpg" 
+            alt="Alex Zhao's Photo" 
+            onClick={handleImageClick}
+            width={120} 
+            height={180} 
+            style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 'inherit' }} />
           </div>
         </div>
       </header>
@@ -114,6 +130,20 @@ export default function About() {
           <button onClick={() => handleSkillClick("Software Development")} className="skill-tag" title = "I build this website to learn full stack">Software Development</button>
         </div>
       </section>
+
+      {showPopup && (
+        <div className="popup-overlay" onClick={handleClosePopup}>
+          <div className="popup-message" onClick={e => e.stopPropagation()}>
+            <button className="popup-close" onClick={handleClosePopup}>&times;</button>
+            <span>
+              <h1>Nice you found out that this is click-able</h1>
+              <p>
+                now try to find more clickable buttons?
+              </p>
+            </span>
+          </div>
+        </div>
+      )}
     </div>
   );
 } 
