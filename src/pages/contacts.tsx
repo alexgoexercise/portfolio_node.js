@@ -6,8 +6,10 @@ export default function Contacts() {
   const [showPopup, setShowPopup] = useState(false);
   const [likes, setLikes] = useState(0);
   const [isLiking, setIsLiking] = useState(false);
+  const [showWeChat, setShowWeChat] = useState(false);
   const email = "alexzhaolixiuqi@gmail.com";
   const phone = "+65 83514349";
+  const XiaohongshuIconPath = '/SimpleIconsXiaohongshu.svg';
 
   // Load likes on component mount
   useEffect(() => {
@@ -106,7 +108,21 @@ export default function Contacts() {
             <i className="fab fa-youtube"></i> YouTube
           </a>
           <a href="https://b23.tv/2sfFe5M" target="_blank" rel="noopener noreferrer" className="social-link bilibili" title="Bilibili is a Chinese video platform">
-            <i className="icon-bilibili"></i> Bilibili
+            <i className="fab fa-bilibili"></i> Bilibili
+          </a>
+          <a href="https://www.xiaohongshu.com/user/profile/60dab21800000000010008b1?// xsec_token=YBhin4_bHCQVOB8iXjNepE4R2ptIB7JXB2Mr8fFog9SE8=&xsec_source=app_share&xhsshare=CopyLink&appuid=60dab21800000000010008b1&apptime=1750996947&share_id=2dfd40a8f4914fcda62c42d6abef1fb3"
+          target="_blank" rel="noopener noreferrer" className="social-link xiaohongshu" title="I dump my videos here like how I use ins stories">
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4em' }}>
+              <img src={XiaohongshuIconPath} alt="小红书" style={{ width: '1.2em', height: '1.2em', verticalAlign: 'middle' }} /> 小红书
+            </span>
+          </a>
+          <a
+            href="#"
+            className="social-link wechat"
+            title="Scan to add me on WeChat"
+            onClick={e => { e.preventDefault(); setShowWeChat(true); }}
+          >
+            <i className="fab fa-weixin"></i> 微信Wechat
           </a>
         </div>
       </div>
@@ -124,6 +140,28 @@ export default function Contacts() {
               1. I still have a pool of brain cells to contribute;<br />
               2. I am willing to over work (if it&apos;s properly paid);<br />
               3. I have no gf commitment and can work extra long;
+            </span>
+          </div>
+        </div>
+      )}
+      {showWeChat && (
+        <div className="popup-overlay" onClick={() => setShowWeChat(false)}>
+          <div className="popup-message" onClick={e => e.stopPropagation()}>
+            <button className="popup-close" onClick={() => setShowWeChat(false)}>&times;</button>
+            <span style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
+              <h4><b>Scan to add me on WeChat</b></h4>
+              <img
+                src="/wechatQRcode.jpg"
+                alt="WeChat QR Code"
+                style={{
+                  width: '220px',
+                  maxWidth: '90vw',
+                  height: 'auto',
+                  borderRadius: '12px',
+                  boxShadow: '0 2px 12px rgba(30,136,229,0.10)',
+                  display: 'block'
+                }}
+              />
             </span>
           </div>
         </div>
