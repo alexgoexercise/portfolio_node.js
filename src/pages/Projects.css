@@ -96,7 +96,7 @@
 
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
-  background: #fff 50% !important;
+  background: rgba(255, 255, 255, 0.5) !important;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 

@@ -5,7 +5,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import { bandsData } from '@/content/bands';
 import styles from './Band.module.css';
-import '../Projects.css';
 import React from 'react';
 
 // Import Swiper styles
