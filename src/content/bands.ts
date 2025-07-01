@@ -44,6 +44,25 @@ export const bandsData: Record<string, Band> = {
     tags: ["Jazz", "Fusion", "Swing", "Jazz Standards"],
     performances: [
       {
+        title: "SCO Music Tapas",
+        date: "26/01/2024",
+        venue: "Singapore Chinese Cultural Centre",
+        description: "Performed with the jazzlings to open for the SCO Music Tapas event.",
+        images: [
+          {src: "/band-images/Jazzlings/sco1.jpg"},
+          {src: "/band-images/Jazzlings/sco2.jpg"}
+        ]
+      },
+      {
+        title: "CNY Video Filming",
+        date: "24/01/2025",
+        venue: "Biantong's dad's studio",
+        description: "Filmed a short jazz cover of the famous CNY tune 恭喜恭喜.",
+        images: [
+          {src: "/band-images/Jazzlings/gxgx1.jpg", url: "https://youtu.be/FP5QR1rw_g0?si=rtDwLAIet3CPodW9"}
+        ]
+      },
+      {
         title: "JASG60",
         date: "30/04/2025",
         venue: "Gardens by the Bay, Singapore",
@@ -57,20 +76,10 @@ export const bandsData: Record<string, Band> = {
         title: "Former Prime Minister's Birthday Gig",
         date: "17/05/2025",
         venue: "Fullerton Hotel, Singapore",
-        description: "Performed as a drummer in former prime minister Goh Chok Tong's birthday celebration with the jazzlings.",
+        description: "Performed in former prime minister Goh Chok Tong's birthday celebration with the jazzlings, covered songs from jazz standards like 'Moon River' to mandopop classics like 恰似你的温柔.",
         images: [
           {src: "/band-images/Jazzlings/big-birthday1.jpg"},
           {src: "/band-images/Jazzlings/big-birthday2.jpg"}
-        ]
-      },
-      {
-        title: "SCO Music Tapas",
-        date: "26/01/2024",
-        venue: "Singapore Chinese Cultural Centre",
-        description: "Performed as a drummer with the jazzlings to open for the SCO Music Tapas event.",
-        images: [
-          {src: "/band-images/Jazzlings/sco1.jpg"},
-          {src: "/band-images/Jazzlings/sco2.jpg"}
         ]
       }
     ]
@@ -85,6 +94,15 @@ export const bandsData: Record<string, Band> = {
     tags: ["Funk", "RNB"],
     performances: [
       {
+        title: "Bring It Back To Life 2023: Reflection!",
+        date: "29/03/2023",
+        venue: "NUS UCC Theatre",
+        description: "Performed with Concrete Mirage (back then was named 林檎凤梨) for the NUS EMCC show BIBTL2023; we covered a few songs with a great range of variety.",
+        images: [
+          {src: "/band-images/Geyao/cm-bibtl1.jpg", url: "https://www.bilibili.com/video/BV1hT411B7Kc/?share_source=copy_web&vd_source=a4379b8be485bc74bafb8366eff4a8bb"}
+        ]
+      },
+      {
         title: "红白歌会 2023",
         date: "13/11/2023",
         venue: "NUS Auditorium 3",
@@ -98,7 +116,7 @@ export const bandsData: Record<string, Band> = {
         title: "NUS SLF 2024",
         date: "16/08/2024",
         venue: "NUS Utown",
-        description: "Performed for NUS Student Life Fair 2024, as one of the representatives from NUS Geyao.",
+        description: "Performed at the NUS Student Life Fair 2024, as one of the representatives from NUS Geyao.",
         images: [
           {src: "/band-images/Geyao/cm-slf.jpg", url: "https://www.bilibili.com/video/BV1rE4m1R7gj/?share_source=copy_web&vd_source=a4379b8be485bc74bafb8366eff4a8bb"}
         ]
@@ -127,7 +145,7 @@ export const bandsData: Record<string, Band> = {
         title: "Full Power 1.0",
         date: "04/05/2024",
         venue: "Wire Entertainment",
-        description: "Performed with the Rosies to sweat out a 40min Rock set covering songs from 二手玫瑰 including 仙儿，枉凝眉 and many more.",
+        description: "First time performing with the Rosies to sweat out a 40min Rock set covering songs from 二手玫瑰 including 仙儿，枉凝眉 and many more.",
         images: [
           {src: "/band-images/Geyao/rosies-wire1.jpg", url: "https://www.bilibili.com/video/BV1jm411y7qR/?share_source=copy_web&vd_source=a4379b8be485bc74bafb8366eff4a8bb"},
           {src: "/band-images/Geyao/rosies-wire2.jpg", url: "https://www.bilibili.com/video/BV1jm411y7qR/?share_source=copy_web&vd_source=a4379b8be485bc74bafb8366eff4a8bb"},
@@ -138,7 +156,7 @@ export const bandsData: Record<string, Band> = {
         title: "大连理工 潮汐·脉冲 音乐节",
         date: "01/06/2025",
         venue: "大连理工大学",
-        description: "Performed with the Rosies, which was invited as a guest band to perform in the 潮汐·脉冲音乐节 organised by the 沙丁鱼乐队 from 大连理工大学.",
+        description: "Performed with the Rosies again, which was invited as a guest band to perform in the 潮汐·脉冲音乐节 organised by the 沙丁鱼乐队 from 大连理工大学.",
         images: [
           {src: "/band-images/Geyao/rosies-大工1.jpg"},
           {src: "/band-images/Geyao/rosies-大工2.jpg"},
@@ -175,10 +193,44 @@ export const bandsData: Record<string, Band> = {
     name: "NUS Jazzband",
     description: "NUS CCA under the Centre for the Arts",
     image: "/band-images/NJB/cover.png",
-    period: "2022 - present",
+    period: "2022 - 2024",
     role: "drummer",
     tags: ["Jazz", "Jazz Standards", "Big Band"],
-    performances: []
+    performances: [
+      {
+        title: "Sem 1 Showcase 2022: On Bali Lane",
+        date: "20/10/2022",
+        venue: "Blujazz, Singapore",
+        description: "My first time playing a proper jazz show!",
+        images: [
+          {src: "/band-images/NJB/OBL1.jpg"},
+          {src: "/band-images/NJB/OBL2.jpg"},
+          {src: "/band-images/NJB/OBL3.jpg"}
+        ]
+      },
+      {
+        title: "Sem 2 Showcase 2023: The Rhythm",
+        date: "05/03/2023",
+        venue: "NUS UCC Theatre",
+        description: "My first time performing at NUS UCC, and second time playing with the NJB as a jazz starter.",
+        images: [
+          {src: "/band-images/NJB/rhythm1.jpg", url: "https://www.bilibili.com/video/BV1Mm4y1E7LZ/?share_source=copy_web&vd_source=a4379b8be485bc74bafb8366eff4a8bb"},  
+          {src: "/band-images/NJB/rhythm2.jpg", url: "https://www.bilibili.com/video/BV1Mm4y1E7LZ/?share_source=copy_web&vd_source=a4379b8be485bc74bafb8366eff4a8bb"}
+        ]
+      },
+      {
+        title: "Sem 1 Showcase 2023: Feastin'",
+        date: "26/10/2023",
+        venue: "Lowercase@LASALLE",
+        description: "Performed with the NJB small big band, spirited myself through 8 intense tunes.",
+        images: [
+          {src: "/band-images/NJB/feastin1.jpg", url: "https://www.bilibili.com/video/BV1WC4y1J7dR/?share_source=copy_web&vd_source=a4379b8be485bc74bafb8366eff4a8bb"},
+          {src: "/band-images/NJB/feastin2.jpg", url: "https://www.bilibili.com/video/BV1Rc411D766/?share_source=copy_web&vd_source=a4379b8be485bc74bafb8366eff4a8bb"},
+          {src: "/band-images/NJB/feastin3.jpg", url: "https://www.bilibili.com/video/BV1xg4y1d7Ct/?share_source=copy_web&vd_source=a4379b8be485bc74bafb8366eff4a8bb"},
+          {src: "/band-images/NJB/feastin4.jpg", url: "https://www.bilibili.com/video/BV1cg4y1o7xz/?share_source=copy_web&vd_source=a4379b8be485bc74bafb8366eff4a8bb"},
+        ]
+      }
+    ]
   }
 };
 
