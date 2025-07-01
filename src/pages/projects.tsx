@@ -1,10 +1,17 @@
-import dynamic from 'next/dynamic';
+import React, { useState, useEffect } from 'react';
+import './Projects.css';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination } from 'swiper/modules';
 import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { bandsList } from '@/content/bands';
 
-const Slider = dynamic(() => import('react-slick'), { ssr: false });
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
-const RightArrow = '/right-arrow-circle-svgrepo-com.svg';
-const LeftArrow = '/left-arrow-circle-svgrepo-com.svg';
 const Pro1 = '/Pro1.jpg';
 const Pro2 = '/Pro2.jpg';
 const Pro3 = '/Pro3.jpg';
@@ -16,45 +23,6 @@ const rtos3 = '/rtos3.jpg';
 const Port1 = '/Portfolio1.jpg';
 const Port2 = '/Portfolio2.jpg';
 
-type ArrowProps = {
-  className?: string;
-  onClick?: () => void;
-  currentSlide?: number;
-  slideCount?: number;
-};
-
-function NextArrow(props: ArrowProps) {
-  const { className, onClick, currentSlide = 0, slideCount = 0 } = props;
-  if (currentSlide >= (slideCount - 1)) return null;
-  return (
-    <div
-      className={`custom-arrow next-arrow slick-arrow ${className || ""}`}
-      onClick={onClick}
-      aria-label="Next"
-      role="button"
-      tabIndex={0}
-    >
-      <Image src={RightArrow} alt="Next" width={36} height={36} style={{ width: '2.2em', height: '2.2em' }} />
-    </div>
-  );
-}
-
-function PrevArrow(props: ArrowProps) {
-  const { className, onClick, currentSlide = 0 } = props;
-  if (currentSlide === 0) return null;
-  return (
-    <div
-      className={`custom-arrow prev-arrow slick-arrow ${className || ""}`}
-      onClick={onClick}
-      aria-label="Previous"
-      role="button"
-      tabIndex={0}
-    >
-      <Image src={LeftArrow} alt="Previous" width={36} height={36} style={{ width: '2.2em', height: '2.2em' }} />
-    </div>
-  );
-}
-
 type Project = {
   title: string;
   description: string | string[];
@@ -62,17 +30,40 @@ type Project = {
   tags: string[];
 };
 
-type SliderSettings = {
-  dots: boolean;
-  infinite: boolean;
-  speed: number;
-  slidesToShow: number;
-  slidesToScroll: number;
-  arrows: boolean;
-  adaptiveHeight: boolean;
-};
-
 export default function Projects() {
+  const router = useRouter();
+  const [isDrummingMode, setIsDrummingMode] = useState(false);
+
+  useEffect(() => {
+    if (router.query.music === '1') {
+      setIsDrummingMode(true);
+    }
+  }, [router.query.music]);
+
+  return (
+    <div className={isDrummingMode ? 'drumming-theme' : 'academic-theme'}>
+      <div className="switch-container">
+        <div 
+          className="switch"
+          onClick={() => setIsDrummingMode((prev) => !prev)}
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              setIsDrummingMode((prev) => !prev);
+            }
+          }}
+        >
+          <span>{isDrummingMode ? 'Drumming Career' : 'Academic Projects'}</span>
+        </div>
+      </div>
+
+      {isDrummingMode ? <DrummingPortfolio /> : <AcademicPortfolio />}
+    </div>
+  );
+}
+
+function AcademicPortfolio() {
   const projects: Project[] = [
     {
       title: "AR Laser Tag++",
@@ -113,16 +104,6 @@ export default function Projects() {
     }
   ];
 
-  const sliderSettings: SliderSettings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: true,
-    adaptiveHeight: true,
-  };
-
   const handleTagClick = (tag: string) => {
     const searchQuery = encodeURIComponent(tag);
     window.open(`https://www.google.com/search?q=${searchQuery}`, '_blank');
@@ -133,39 +114,34 @@ export default function Projects() {
       {projects.map((project) => (
         <div key={project.title} className="project-card">
           <h2>{project.title}</h2>
-          <p>
+          <div>
             {Array.isArray(project.description)
-              ? project.description.map((line, idx) => <div key={idx}>{line}</div>)
-              : project.description}
-          </p>
-          <div className="slider-wrapper" style={{ position: 'relative' }}>
-            <Slider
-              {...sliderSettings}
-              nextArrow={<NextArrow />}
-              prevArrow={<PrevArrow />}
+              ? project.description.map((line, idx) => <p key={idx}>{line}</p>)
+              : <p>{project.description}</p>}
+          </div>
+          <div className="slider-wrapper">
+            <Swiper
+              modules={[Navigation, Pagination]}
+              spaceBetween={30}
+              slidesPerView={1}
+              navigation={true}
+              pagination={{ clickable: true }}
+              loop={true}
+              className="project-swiper"
             >
               {project.images.map((img, index) => (
-                <div key={index}>
+                <SwiperSlide key={index}>
                   <Image
                     src={img}
                     alt={`Slide ${index}`}
                     width={600}
                     height={400}
-                    style={{
-                      height: '100%',
-                      width: 'auto',
-                      maxWidth: '100%',
-                      objectFit: 'contain',
-                      borderRadius: '12px',
-                      display: 'block',
-                      margin: '0 auto',
-                      background: '#f8f8f8',
-                    }}
+                    className="slider-image"
                     draggable={false}
                   />
-                </div>
+                </SwiperSlide>
               ))}
-            </Slider>
+            </Swiper>
           </div>
           <div className="tags">
             {project.tags.map((tag) => (
@@ -181,6 +157,56 @@ export default function Projects() {
           </div>
         </div>
       ))}
+    </div>
+  );
+}
+
+function DrummingPortfolio() {
+  return (
+    <div className="drumming-portfolio">
+      <section className="drumming-section">
+        <h2 className="drumming-section-title">
+          My Music Journey
+        </h2>
+        <div className="drumming-grid">
+          {bandsList.map((band) => (
+            <Link 
+              href={`/band/${band.id}`} 
+              key={band.id} 
+              className="drumming-card band-card"
+            >
+              <div className="drumming-media">
+                {band.image && (
+                  <Image
+                    src={band.image}
+                    alt={band.name}
+                    width={800}
+                    height={600}
+                  />
+                )}
+              </div>
+              <h3 className="drumming-card-title">{band.name}</h3>
+              <p className="drumming-card-period">{band.period}</p>
+              <p className="drumming-card-content">{band.description}</p>
+              <div className="drumming-tags">
+                {band.tags.map((tag, i) => (
+                  <button
+                    key={i}
+                    className="drumming-tag"
+                    title={`Search for ${tag} on Google`}
+                    onClick={e => {
+                      e.stopPropagation();
+                      window.open(`https://www.google.com/search?q=${encodeURIComponent(tag)}`, '_blank');
+                    }}
+                  >
+                    {tag}
+                  </button>
+                ))}
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
     </div>
   );
 } 

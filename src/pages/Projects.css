@@ -8,6 +8,7 @@
   width: 100%;
   max-width: 1200px;   /* Add a max-width for the container */
   margin: clamp(30px, 8vh, 120px) auto 0 auto;
+  padding-top: 80px;
 }
 
 /* ──────────  card  ────────── */
@@ -20,10 +21,18 @@
   padding: clamp(1rem, 3vw, 3rem);
   transition: transform .2s ease, box-shadow .2s ease;
   margin-top: clamp(20px, 5vh, 50px);
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
 }
 .project-card:hover { 
   transform: translateY(-3px); 
   box-shadow: 0 8px 30px rgba(0,0,0,.12);
+}
+
+.project-card > .slider-wrapper,
+.project-card .slider-wrapper {
+  margin: 2rem 0 1.5rem 0;
 }
 
 /* ──────────  typography  ────────── */
@@ -41,51 +50,75 @@
 }
 
 /* ──────────  slider  ────────── */
-.project-slider {
-  position: relative;
-  z-index: 1;
-  overflow: hidden; /* Prevents slick-track from overflowing */
-  height: auto;     /* Ensures it only takes up needed space */
-  margin-bottom: 1.5rem; /* Add space below the slider for tags */
-  max-width: 500px;
-  margin: 0 auto 2rem auto;
+.slider-wrapper {
+  width: 100%;
+  background: #fff;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(30, 136, 229, 0.08), 0 1.5px 6px rgba(0,0,0,0.04);
+  border: 1.5px solid #e3eaf3;
+  margin: 2rem 0 1.5rem 0;
 }
 
-.slick-list {
-  overflow: hidden !important;
-  height: auto !important;
+.project-swiper,
+.performance-swiper {
+  width: 100%;
+  height: auto;
 }
 
-.slick-track {
-  height: auto !important;
-  min-height: 0 !important;
-}
-
-.project-slider .slick-slide{
-  display: flex !important;   /* override slick's inline-block */
-  justify-content: center;    /* centre the slide's content    */
+.swiper-slide {
+  display: flex;
+  justify-content: center;
   align-items: center;
   padding: clamp(0.5rem, 2vw, 1rem);
 }
 
-/* Responsive slick dots */
-.slick-dots {
+/* Swiper Navigation Buttons */
+.swiper-button-next,
+.swiper-button-prev {
+  background: transparent !important;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  width: 48px !important;
+  height: 48px !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  z-index: 2;
+  border: none;
+  transition: background 0.2s, box-shadow 0.2s;
+  color: #1976d2 !important;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background: #fff 50% !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 20px !important;
+  font-weight: bold;
+}
+
+/* Swiper Pagination */
+.swiper-pagination {
   position: absolute;
   bottom: clamp(5px, 2vw, 15px);
   width: 100%;
-  display: flex !important;
+  display: flex;
   justify-content: center;
   align-items: center;
   padding: 0;
   margin: 0;
-  list-style: none;
 }
 
-.slick-dots li {
-  margin: 0 clamp(2px, 1vw, 6px);
-}
-
-.slick-dots button {
+.swiper-pagination-bullet {
   width: clamp(16px, 4vw, 32px);
   height: clamp(3px, 1vw, 6px);
   border-radius: 2px;
@@ -94,21 +127,12 @@
   border: none;
   transition: opacity 0.2s;
   padding: 0;
+  margin: 0 clamp(2px, 1vw, 6px);
 }
 
-.slick-dots .slick-active button {
+.swiper-pagination-bullet-active {
   opacity: 1;
   background: #1e88e5;
-}
-
-.slick-dots li button:before {
-  color: #1976d2;
-  font-size: 14px;
-  opacity: 0.7;
-}
-.slick-dots li.slick-active button:before {
-  color: #1976d2;
-  opacity: 1;
 }
 
 @media (max-width: 768px) {
@@ -119,6 +143,11 @@
   
   .project-card {
     padding: clamp(0.8rem, 2.5vw, 1.5rem);
+  }
+  
+  .slider-wrapper {
+    min-height: 180px;
+    max-height: 260px;
   }
 }
 
@@ -180,65 +209,400 @@
   .project-card{max-width:100%;}
 }
 
-/* Removed custom styles for .slick-arrow, .slick-dots, .slick-slider, .slick-list, .slick-track to avoid conflicts with slick-carousel defaults. */
+/* Old react-slick styles removed - now using Swiper */
 
-.slick-arrow {
-  background: #fff !important;
-  border-radius: 50%;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
-  width: 48px;
-  height: 48px;
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
-  opacity: 1;
-  z-index: 2;
-  border: none;
-  transition: background 0.2s, box-shadow 0.2s;
-  font-size: 28px;
-  color: #1976d2;
-}
-
-.slick-arrow:before {
-  display: none !important;
-}
-
-.slick-arrow:hover {
-  background: #e3f0ff !important;
-  box-shadow: 0 4px 16px rgba(25, 118, 210, 0.15);
-}
-
-/* Slider container */
-.slick-slider, .project-slider {
-  max-width: 500px;
-  margin: 0 auto 2rem auto;
-}
-
-/* Each slide: fixed height, flex centering */
-.slick-slide {
-  height: 350px;
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
-  background: #f8f8f8;
-}
-
-.slick-slide > div {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Universal image styling for all slides */
-.slick-slide img {
-  height: 100%;
+.slider-image {
+  max-width: 95%;
+  max-height: 400px;
   width: auto;
-  max-width: 100%;
+  height: auto;
   object-fit: contain;
   border-radius: 12px;
   display: block;
-  margin: 0 auto;
+  margin: 1rem auto;
   background: #f8f8f8;
+  box-shadow: 0 2px 8px rgba(30, 136, 229, 0.07);
+}
+
+.switch-container {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1000;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.switch {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0.8rem 1.2rem;
+  border-radius: 20px 0 0 20px;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  transform-origin: right center;
+}
+
+.switch:hover {
+  background: rgba(255, 255, 255, 1);
+  box-shadow: -3px 0 15px rgba(0, 0, 0, 0.15);
+  transform: translateX(-5px);
+}
+
+.switch:active {
+  transform: translateX(0) scale(0.95);
+}
+
+.switch span {
+  font-size: 0.9rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+/* Theme-specific styles */
+.academic-theme {
+  background: var(--background);
+  color: var(--foreground);
+  min-height: 100vh;
+  transition: all 0.4s ease;
+}
+
+.academic-theme .switch {
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+}
+
+.academic-theme .switch:hover {
+  background: rgba(255, 255, 255, 1);
+}
+
+.drumming-theme {
+  background: #1a1a2e; /* Softer dark blue base instead of pure black */
+  color: #ffffff;
+  min-height: 100vh;
+  transition: all 0.4s ease;
+  position: relative;
+  padding-top: 60px;
+}
+
+.drumming-theme::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 0% 0%, rgba(45, 21, 85, 0.25) 0%, transparent 50%),
+    radial-gradient(circle at 100% 0%, rgba(19, 84, 122, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 100% 100%, rgba(113, 28, 72, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 0% 100%, rgba(30, 64, 105, 0.25) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.drumming-theme .switch {
+  background: rgba(30, 30, 30, 0.9);
+  color: #ffffff;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+}
+
+.drumming-theme .switch:hover {
+  background: rgba(40, 40, 40, 0.95);
+  box-shadow: -3px 0 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Project cards styling for different themes */
+.academic-theme .project-card {
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.drumming-theme .project-card {
+  background: rgba(45, 45, 68, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+}
+
+.drumming-theme .project-card:hover {
+  background: rgba(55, 55, 85, 0.7);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* Add padding to project container to prevent content from being hidden under navbar */
+.project-container {
+  padding-top: 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Drumming Portfolio Layout */
+.drumming-portfolio {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.drumming-section {
+  margin-bottom: 4rem;
+}
+
+.drumming-section-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.95);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+  padding-bottom: 0.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.drumming-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  margin: 0 auto;
+  justify-items: center;
+}
+
+.band-card {
+  width: 100%;
+  max-width: 350px;
+  min-height: 420px;
+  background: rgba(45, 45, 68, 0.7);
+  border-radius: 14px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+  padding: 1.2rem 1rem 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.band-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+}
+
+.band-card .drumming-media {
+  margin-bottom: 1rem;
+  max-width: 100%;
+  height: 200px;
+}
+
+.band-card .drumming-media img {
+  max-width: 100%;
+  max-height: 180px;
+  object-fit: contain !important;
+  border-radius: 10px;
+  background: #222;
+  display: block;
+  margin: 0 auto;
+}
+
+.drumming-card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.3rem;
+  text-align: center;
+}
+
+.drumming-card-period {
+  color: rgba(255,255,255,0.7);
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.drumming-card-content {
+  color: rgba(255,255,255,0.88);
+  font-size: 1rem;
+  margin-bottom: 0.7rem;
+  text-align: center;
+}
+
+.drumming-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 0.7rem;
+  margin-bottom: 0.2rem;
+}
+
+.drumming-tag {
+  background: rgba(65, 65, 95, 0.7);
+  color: #fff;
+  padding: 0.3rem 1rem;
+  border-radius: 999px;
+  font-size: 0.92rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  border: 1px solid rgba(255,255,255,0.13);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: background 0.2s, color 0.2s;
+  display: inline-flex;
+  align-items: center;
+}
+
+.drumming-tag:hover {
+  background: rgba(75, 75, 110, 0.9);
+  color: #4fc3f7;
+  border-color: #4fc3f7;
+}
+
+/* Back Button Styles */
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  margin: 2rem 0;
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
+  background: rgba(45, 45, 68, 0.8);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  position: sticky;
+  top: 20px;
+  z-index: 100;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.back-button:hover {
+  background: rgba(55, 55, 85, 0.9);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.back-arrow {
+  font-size: 1.4rem;
+  margin-right: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.back-button:hover .back-arrow {
+  transform: translateX(-3px);
+}
+
+.back-text {
+  font-weight: 500;
+}
+
+/* Band Detail Page Styles */
+.band-detail-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 4rem;
+  color: #ffffff;
+  position: relative;
+}
+
+.band-detail-section {
+  margin-bottom: 4rem;
+}
+
+.band-header {
+  margin-bottom: 2rem;
+}
+
+.band-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.band-period {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.1rem;
+}
+
+.band-main-image {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.band-description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.band-description p {
+  margin-bottom: 1.5rem;
+}
+
+.band-performances-section {
+  margin-top: 4rem;
+}
+
+.band-performances-section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.95);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+  padding-bottom: 0.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.performances-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.performance-card {
+  background: rgba(45, 45, 68, 0.6);
+  border-radius: 12px;
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.performance-card:hover {
+  background: rgba(55, 55, 85, 0.7);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.performance-media {
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+}
+
+.performance-content {
+  padding: 1.5rem;
+}
+
+.performance-content h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.performance-date,
+.performance-venue {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.performance-description {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-top: 1rem;
 }
