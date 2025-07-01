@@ -164,7 +164,8 @@ export const bandsData: Record<string, Band> = {
         description: "Tried my best to salute the legendary band 万能青年旅店 with my bros in 安得万全法 by covering their famous songs like 在这颗行星所有的酒馆, 永嘉彗星, 杀死那个石家庄人 and a few more. We also covered the song 'Lonely God' by 惘闻.",
         images: [
           {src: "/band-images/Geyao/adwqf1.jpg", url: "https://youtu.be/Zo4zVeEKLJg?si=mRqycUFRRR5BJIFX"},
-          {src: "/band-images/Geyao/adwqf2.jpg", url: "https://youtu.be/Zo4zVeEKLJg?si=mRqycUFRRR5BJIFX"}
+          {src: "/band-images/Geyao/adwqf2.jpg", url: "https://youtu.be/Zo4zVeEKLJg?si=mRqycUFRRR5BJIFX"},
+          {src: "/band-images/Geyao/adwqf-cover.jpg", url: "https://youtu.be/Zo4zVeEKLJg?si=mRqycUFRRR5BJIFX"}
         ]
       }
     ]
