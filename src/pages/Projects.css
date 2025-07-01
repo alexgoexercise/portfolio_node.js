@@ -229,7 +229,7 @@
   align-items: center;
   position: fixed;
   right: 0;
-  top: 50%;
+  top: 95%;
   transform: translateY(-50%);
   z-index: 1000;
   padding: 1rem;
