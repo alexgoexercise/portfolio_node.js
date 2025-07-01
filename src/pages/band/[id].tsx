@@ -86,6 +86,7 @@ export default function BandPage() {
                       pagination={{ clickable: true }}
                       loop={true}
                       className="performance-swiper"
+                      autoHeight={true}
                     >
                       {performance.images.map((img, index) => (
                         <SwiperSlide key={index}>

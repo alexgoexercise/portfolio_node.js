@@ -26,7 +26,7 @@ export const bandsData: Record<string, Band> = {
   1: {
     id: "1",
     name: "NUS CAC Voices",
-    description: 'a CCA under the NUS cultural acitivity club (now under the Centre for the Arts) specialises in mandopop performance.',
+    description: 'CCA under the NUS cultural acitivity club (now under the Centre for the Arts) specialises in mandopop performance.',
     image: "/band-images/Voices/cover.jpg",
     period: "2021 - present",
     role: "drummer, bassist, Exco member (vice president & publicity director, 2022-2023)",
@@ -41,16 +41,36 @@ export const bandsData: Record<string, Band> = {
     image: "/band-images/Jazzlings/cover.jpg",
     period: "2024 - present",
     role: "drummer",
-    tags: ["Jazz", "Fusion", "Swing", "Standards"],
+    tags: ["Jazz", "Fusion", "Swing", "Jazz Standards"],
     performances: [
       {
         title: "JASG60",
         date: "30/04/2025",
         venue: "Gardens by the Bay, Singapore",
-        description: "one of the hugest jazz event in Singapore organised by the jazzlings to celebrate SG60. It is also the Singapore stop of the international jazz day.",
+        description: "One of the greated jazz event in Singapore organised by the jazzlings to celebrate SG60. It is also the Singapore stop of the international jazz day. I performed as a drummer in the bossa nova band stationed near the flower dome at gardens by the bay.",
         images: [
           {src: "/band-images/Jazzlings/jasg60-1.jpg"},
           {src: "/band-images/Jazzlings/jasg60-2.jpg"}
+        ]
+      },
+      {
+        title: "Former Prime Minister's Birthday Gig",
+        date: "17/05/2025",
+        venue: "Fullerton Hotel, Singapore",
+        description: "Performed as a drummer in former prime minister Goh Chok Tong's birthday celebration with the jazzlings.",
+        images: [
+          {src: "/band-images/Jazzlings/big-birthday1.jpg"},
+          {src: "/band-images/Jazzlings/big-birthday2.jpg"}
+        ]
+      },
+      {
+        title: "SCO Music Tapas",
+        date: "26/01/2024",
+        venue: "Singapore Chinese Cultural Centre",
+        description: "Performed as a drummer with the jazzlings to open for the SCO Music Tapas event.",
+        images: [
+          {src: "/band-images/Jazzlings/sco1.jpg"},
+          {src: "/band-images/Jazzlings/sco2.jpg"}
         ]
       }
     ]
@@ -66,15 +86,44 @@ export const bandsData: Record<string, Band> = {
     performances: [
       {
         title: "红白歌会 2023",
-        date: "15/06/2023",
+        date: "13/11/2023",
         venue: "NUS Auditorium 3",
         description: "We performed Superstition by Stevie Wonder, click the image to view the video!",
         images: [
-          {src: "/band-images/Geyao/cm1.jpg", url: "https://www.bilibili.com/video/BV1ii4y1i7uB/?share_source=copy_web&vd_source=a4379b8be485bc74bafb8366eff4a8bb"}
-        ],
+          {src: "/band-images/Geyao/cm1.jpg", url: "https://www.bilibili.com/video/BV1ii4y1i7uB/?share_source=copy_web&vd_source=a4379b8be485bc74bafb8366eff4a8bb"},
+          {src: "/band-images/Geyao/cm3.jpg", url: "https://www.bilibili.com/video/BV1ii4y1i7uB/?share_source=copy_web&vd_source=a4379b8be485bc74bafb8366eff4a8bb"}
+        ]
       },
+      {
+        title: "NUS SLF 2024",
+        date: "16/08/2024",
+        venue: "NUS Utown",
+        description: "Performed for NUS Student Life Fair 2024, as one of the representatives from NUS Geyao.",
+        images: [
+          {src: "band-images/Geyao/cm-slf.jpg", url: "https://www.bilibili.com/video/BV1rE4m1R7gj/?share_source=copy_web&vd_source=a4379b8be485bc74bafb8366eff4a8bb"}
+        ]
+      },
+      {
+        title: "红白歌会 2024",
+        date: "10/11/2024",
+        venue: "Wire Entertainment",
+        description: "We performed a 40 min set including songs from Doja Cat, Bruno Mars, Khalil Fong and more.",
+        images:[
+          {src: "/band-images/Geyao/cm2.jpg", url: "https://www.bilibili.com/video/BV1KEBoYrE59/?share_source=copy_web"}
+        ]
+      }
     ]
   },
+  4: {
+    id: "4",
+    name: "NUS Jazzband",
+    description: "NUS CCA under the Centre for the Arts",
+    image: "/band-images/NJB/cover.png",
+    period: "2022 - present",
+    role: "drummer",
+    tags: ["Jazz", "Jazz Standards", "Big Band"],
+    performances: []
+  }
 };
 
 export const bandsList = Object.values(bandsData); 
