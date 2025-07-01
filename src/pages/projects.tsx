@@ -53,7 +53,7 @@ export default function Projects() {
             }
           }}
         >
-          <span>{isDrummingMode ? 'Drumming Career' : 'Academic Projects'}</span>
+          <span>{isDrummingMode ? 'Music Journey' : 'Academic Projects'}</span>
         </div>
       </div>
 

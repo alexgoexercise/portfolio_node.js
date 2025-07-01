@@ -70,9 +70,9 @@ export default function BandPage() {
           </div>
         </section>
 
-        {/* Performances Section */}
+        {/* Events Section */}
         <section className={styles.bandPerformancesSection}>
-          <h2>Performances</h2>
+          <h2>Events</h2>
           <div className={styles.performancesGrid}>
             {band.performances.map((performance, index) => (
               <div key={index} className={styles.performanceCard}>

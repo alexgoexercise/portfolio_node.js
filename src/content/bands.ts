@@ -100,7 +100,7 @@ export const bandsData: Record<string, Band> = {
         venue: "NUS Utown",
         description: "Performed for NUS Student Life Fair 2024, as one of the representatives from NUS Geyao.",
         images: [
-          {src: "band-images/Geyao/cm-slf.jpg", url: "https://www.bilibili.com/video/BV1rE4m1R7gj/?share_source=copy_web&vd_source=a4379b8be485bc74bafb8366eff4a8bb"}
+          {src: "/band-images/Geyao/cm-slf.jpg", url: "https://www.bilibili.com/video/BV1rE4m1R7gj/?share_source=copy_web&vd_source=a4379b8be485bc74bafb8366eff4a8bb"}
         ]
       },
       {
@@ -116,6 +116,38 @@ export const bandsData: Record<string, Band> = {
   },
   4: {
     id: "4",
+    name: "Rosies 余香肉丝",
+    description: "a band formed under the NUSGeyao cultural activity group, specialises in cover songs from 二手玫瑰.",
+    image: "/band-images/Geyao/rosies-cover.jpg",
+    period: "2024 - present",
+    role: "drummer",
+    tags: ["Rock", "Chinese Rock"],
+    performances: [
+      {
+        title: "Full Power 1.0",
+        date: "04/05/2024",
+        venue: "Wire Entertainment",
+        description: "Performed with the Rosies for a 40min Rock set covering songs from 二手玫瑰 including 仙儿，枉凝眉 and many more.",
+        images: [
+          {src: "/band-images/Geyao/rosies-wire1.jpg", url: "https://www.bilibili.com/video/BV1jm411y7qR/?share_source=copy_web&vd_source=a4379b8be485bc74bafb8366eff4a8bb"}
+        ]
+      },
+      {
+        title: "大连理工 潮汐·脉冲 音乐节",
+        date: "01/06/2025",
+        venue: "大连理工大学",
+        description: "Performed with the Rosies, which was invited as a guest band to perform in the 潮汐·脉冲音乐节 organised by the 沙丁鱼乐队 from 大连理工大学.",
+        images: [
+          {src: "/band-images/Geyao/rosies-大工1.jpg"},
+          {src: "/band-images/Geyao/rosies-大工2.jpg"},
+          {src: "/band-images/Geyao/rosies-大工3.jpg"},
+          {src: "/band-images/Geyao/rosies-大工4.jpg"}
+        ]
+      }
+    ]
+  },
+  5: {
+    id: "5",
     name: "NUS Jazzband",
     description: "NUS CCA under the Centre for the Arts",
     image: "/band-images/NJB/cover.png",
