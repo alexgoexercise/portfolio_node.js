@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import './Projects.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import Image from 'next/image';
