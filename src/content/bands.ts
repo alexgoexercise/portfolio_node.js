@@ -78,7 +78,7 @@ export const bandsData: Record<string, Band> = {
   3: {
     id: "3",
     name: "水泥幻象 Concrete Mirage",
-    description: "a band formed under the NUSGeyao cultural activity group.",
+    description: "a band formed under the NUSGeyao, specialises in covering funk and RNB songs.",
     image: "/band-images/Geyao/cm-cover.jpg",
     period: "2022 - present",
     role: "drummer",
@@ -117,7 +117,7 @@ export const bandsData: Record<string, Band> = {
   4: {
     id: "4",
     name: "Rosies 余香肉丝",
-    description: "a band formed under the NUSGeyao cultural activity group, specialises in cover songs from 二手玫瑰.",
+    description: "a band formed under the NUSGeyao, specialises in covering songs from 二手玫瑰.",
     image: "/band-images/Geyao/rosies-cover.jpg",
     period: "2024 - present",
     role: "drummer",
@@ -127,9 +127,11 @@ export const bandsData: Record<string, Band> = {
         title: "Full Power 1.0",
         date: "04/05/2024",
         venue: "Wire Entertainment",
-        description: "Performed with the Rosies for a 40min Rock set covering songs from 二手玫瑰 including 仙儿，枉凝眉 and many more.",
+        description: "Performed with the Rosies to sweat out a 40min Rock set covering songs from 二手玫瑰 including 仙儿，枉凝眉 and many more.",
         images: [
-          {src: "/band-images/Geyao/rosies-wire1.jpg", url: "https://www.bilibili.com/video/BV1jm411y7qR/?share_source=copy_web&vd_source=a4379b8be485bc74bafb8366eff4a8bb"}
+          {src: "/band-images/Geyao/rosies-wire1.jpg", url: "https://www.bilibili.com/video/BV1jm411y7qR/?share_source=copy_web&vd_source=a4379b8be485bc74bafb8366eff4a8bb"},
+          {src: "/band-images/Geyao/rosies-wire2.jpg", url: "https://www.bilibili.com/video/BV1jm411y7qR/?share_source=copy_web&vd_source=a4379b8be485bc74bafb8366eff4a8bb"},
+          {src: "/band-images/Geyao/rosies-wire3.jpg", url: "https://www.bilibili.com/video/BV1jm411y7qR/?share_source=copy_web&vd_source=a4379b8be485bc74bafb8366eff4a8bb"}
         ]
       },
       {
@@ -148,6 +150,27 @@ export const bandsData: Record<string, Band> = {
   },
   5: {
     id: "5",
+    name: "安得万全法",
+    description: "a band formed under the NUSGeyao, cover songs from 万能青年旅店.",
+    image: "/band-images/Geyao/adwqf-cover.jpg",
+    period: "2024",
+    role: "drummer",
+    tags: ["Rock", "Chinese Rock"],
+    performances: [
+      {
+        title: "Full Power 1.0",
+        date: "04/05/2024",
+        venue: "Wire Entertainment",
+        description: "Tried my best to salute the legendary band 万能青年旅店 with my bros in 安得万全法 by covering their famous songs like 在这颗行星所有的酒馆, 永嘉彗星, 杀死那个石家庄人 and a few more. We also covered the song 'Lonely God' by 惘闻.",
+        images: [
+          {src: "/band-images/Geyao/adwqf1.jpg", url: "https://youtu.be/Zo4zVeEKLJg?si=mRqycUFRRR5BJIFX"},
+          {src: "/band-images/Geyao/adwqf2.jpg", url: "https://youtu.be/Zo4zVeEKLJg?si=mRqycUFRRR5BJIFX"}
+        ]
+      }
+    ]
+  },
+  6: {
+    id: "6",
     name: "NUS Jazzband",
     description: "NUS CCA under the Centre for the Arts",
     image: "/band-images/NJB/cover.png",
