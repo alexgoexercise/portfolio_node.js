@@ -113,7 +113,7 @@ export default function Contacts() {
           <a href="https://www.xiaohongshu.com/user/profile/60dab21800000000010008b1?// xsec_token=YBhin4_bHCQVOB8iXjNepE4R2ptIB7JXB2Mr8fFog9SE8=&xsec_source=app_share&xhsshare=CopyLink&appuid=60dab21800000000010008b1&apptime=1750996947&share_id=2dfd40a8f4914fcda62c42d6abef1fb3"
           target="_blank" rel="noopener noreferrer" className="social-link xiaohongshu" title="I dump my videos here like how I use ins stories">
             <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4em' }}>
-              <img src={XiaohongshuIconPath} alt="小红书" style={{ width: '1.2em', height: '1.2em', verticalAlign: 'middle' }} /> 小红书
+              <Image src={XiaohongshuIconPath} alt="小红书" width={19} height={19} style={{ verticalAlign: 'middle' }} /> 小红书
             </span>
           </a>
           <a
