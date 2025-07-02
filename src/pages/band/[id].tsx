@@ -75,7 +75,7 @@ export default function BandPage() {
           <h2>Events</h2>
           <div className={styles.performancesGrid}>
             {band.performances.map((performance, index) => {
-              // Check if this performance has any images with video URLs
+              // Check if this performance has any images with video URLs （once there is one image with embedded url, the rest of the images will also be having a play button on it)
               const hasVideos = performance.images?.some(img => img.url);
               
               return (

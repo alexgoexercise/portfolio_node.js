@@ -20,6 +20,8 @@ export type Band = {
   role: string;
   tags: string[];
   performances: Performance[];
+  externalUrl?: string;
+  clickNotice?: string;
 };
 
 export const bandsData: Record<string, Band> = {
@@ -31,6 +33,8 @@ export const bandsData: Record<string, Band> = {
     period: "2021 - present",
     role: "drummer, bassist, Exco member (vice president & publicity director, 2022-2023)",
     tags: ["Mandopop", "Pop", "Rock"],
+    externalUrl: "https://www.instagram.com/nusvoices",
+    clickNotice: "Click to follow on Instagram",
     performances: [
     ]
   },
@@ -42,6 +46,8 @@ export const bandsData: Record<string, Band> = {
     period: "2024 - present",
     role: "drummer",
     tags: ["Jazz", "Fusion", "Swing", "Jazz Standards"],
+    externalUrl: "https://www.instagram.com/thejazzlings",
+    clickNotice: "Click to follow on Instagram",
     performances: [
       {
         title: "SCO Music Tapas",
@@ -92,6 +98,8 @@ export const bandsData: Record<string, Band> = {
     period: "2022 - present",
     role: "drummer",
     tags: ["Funk", "RNB"],
+    externalUrl: "https://www.instagram.com/concretemirage",
+    clickNotice: "Click to follow on Instagram",
     performances: [
       {
         title: "Bring It Back To Life 2023: Reflection!",

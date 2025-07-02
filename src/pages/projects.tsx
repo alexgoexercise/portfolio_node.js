@@ -27,6 +27,8 @@ type Project = {
   description: string | string[];
   images: string[];
   tags: string[];
+  url?: string;
+  clickNotice?: string;
 };
 
 export default function Projects() {
@@ -78,7 +80,9 @@ function AcademicPortfolio() {
         Pro4,
         Pro5,
       ],
-      tags: ["Arduino", "Machine Learning", "Hardware Design"]
+      tags: ["Arduino", "Machine Learning", "Hardware Design"],
+      url: "https://youtu.be/j6V-k7JI1kU?si=eQzZtGNRQTZ5DoNx",
+      clickNotice: "Click to watch the demo video (my personal part)"
     },
     {
       title: "RTOS Car Racing",
@@ -90,7 +94,9 @@ function AcademicPortfolio() {
         rtos2,
         rtos3,
       ],
-      tags: ["RTOS", "Embedded C", "ARM"]
+      tags: ["RTOS", "Embedded C", "ARM Architecture"],
+      url: "https://youtu.be/wuBXb3VTfQs?si=vmmgp4It8mhxug4X",
+      clickNotice: "Click to watch the demo video"
     },
     {
       title: "Personal Website",
@@ -99,7 +105,9 @@ function AcademicPortfolio() {
         Port1,
         Port2,
       ],
-      tags: ["node.js", "react", "typescript", "vercel"]
+      tags: ["node.js", "react", "typescript", "vercel"],
+      url: "https://github.com/alexgoexercise/portfolio_node.js",
+      clickNotice: "Click to view source code"
     }
   ];
 
@@ -108,10 +116,36 @@ function AcademicPortfolio() {
     window.open(`https://www.google.com/search?q=${searchQuery}`, '_blank');
   };
 
+  const handleCardClick = (project: Project) => {
+    if (project.url) {
+      window.open(project.url, '_blank');
+    }
+  };
+
   return (
     <div className="project-container">
       {projects.map((project) => (
-        <div key={project.title} className="project-card">
+        <div 
+          key={project.title} 
+          className={`project-card ${project.url ? 'clickable-card' : ''}`}
+          onClick={() => handleCardClick(project)}
+          role={project.url ? 'button' : undefined}
+          tabIndex={project.url ? 0 : undefined}
+          onKeyDown={(e) => {
+            if (project.url && (e.key === 'Enter' || e.key === ' ')) {
+              e.preventDefault();
+              handleCardClick(project);
+            }
+          }}
+        >
+          {project.url && (
+            <div className="click-notice">
+              <span>{project.clickNotice}</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </div>
+          )}
           <h2>{project.title}</h2>
           <div>
             {Array.isArray(project.description)
@@ -147,7 +181,10 @@ function AcademicPortfolio() {
               <button
                 key={tag}
                 className="skill-tag"
-                onClick={() => handleTagClick(tag)}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleTagClick(tag);
+                }}
                 title={`Search for ${tag} on Google`}
               >
                 {tag}
@@ -161,6 +198,19 @@ function AcademicPortfolio() {
 }
 
 function DrummingPortfolio() {
+  const handleBandClick = (band: any, e: React.MouseEvent) => {
+    e.preventDefault();
+    // Always navigate to the band detail page when clicking the card
+    window.location.href = `/band/${band.id}`;
+  };
+
+  const handleExternalClick = (band: any, e: React.MouseEvent) => {
+    e.stopPropagation(); // Prevent card click
+    if (band.externalUrl) {
+      window.open(band.externalUrl, '_blank');
+    }
+  };
+
   return (
     <div className="drumming-portfolio">
       <section className="drumming-section">
@@ -169,11 +219,38 @@ function DrummingPortfolio() {
         </h2>
         <div className="drumming-grid">
           {bandsList.map((band) => (
-            <Link 
-              href={`/band/${band.id}`} 
+            <div 
               key={band.id} 
               className="drumming-card band-card"
+              onClick={(e) => handleBandClick(band, e)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  handleBandClick(band, e as any);
+                }
+              }}
             >
+              {band.externalUrl && (
+                <div 
+                  className="click-notice drumming-click-notice"
+                  onClick={(e) => handleExternalClick(band, e)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      handleExternalClick(band, e as any);
+                    }
+                  }}
+                >
+                  <span>{band.clickNotice}</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </div>
+              )}
               <div className="drumming-media">
                 {band.image && (
                   <Image
@@ -202,7 +279,7 @@ function DrummingPortfolio() {
                   </button>
                 ))}
               </div>
-            </Link>
+            </div>
           ))}
         </div>
       </section>
