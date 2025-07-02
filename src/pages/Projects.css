@@ -135,6 +135,7 @@
   position: relative;
 }
 
+/* Restore academic project underline */
 .project-card h2::after {
   content: '';
   position: absolute;
@@ -146,7 +147,6 @@
   border-radius: 2px;
   transition: width 0.3s ease;
 }
-
 .project-card:hover h2::after {
   width: 60px;
 }
@@ -629,11 +629,12 @@
   bottom: -6px;
   left: 50%;
   transform: translateX(-50%);
-  width: 30px;
+  width: 0;
   height: 2px;
   background: linear-gradient(90deg, #4fc3f7 0%, #29b6f6 100%);
   border-radius: 1px;
   transition: width 0.3s ease;
+  display: block;
 }
 
 .band-card:hover .drumming-card-title::after {

@@ -22,7 +22,7 @@ export default function About() {
       <header>
         <div className="header-left">
           <h1>ALEX</h1>
-          <h2>ZHAO LIXIUQI</h2>
+          <h2>ZHAO LIXIUQI 赵李修齐</h2>
           <p>Singapore | alexzhaolixiuqi@gmail.com | +65 83514349</p>
         </div>
         <div className="header-photo">

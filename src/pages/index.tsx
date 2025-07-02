@@ -4,14 +4,17 @@ import { skills } from '../content/skills';
 import { FaUser, FaProjectDiagram, FaEnvelope } from 'react-icons/fa';
 
 export default function Home() {
-  const [copied, setCopied] = useState(false);
 
   return (
     <div className="home">
       <section className="hero">
-        <h1 className="hero-title">Alex Zhao</h1>
+        <div className="hero-name-block minimal">
+          <h1 className="hero-title">Alex</h1>
+          <div className="hero-signature">
+            <span className="hero-signature-latin">Zhao Lixiuqi</span>
+          </div>
+        </div>
         <p className="hero-subtitle">Engineer • Developer • Musician</p>
-        <p className="hero-tagline">Welcome to my portfolio! Explore my projects, music, and journey in tech and art.</p>
       </section>
 
       <section className="nav-cards">
@@ -63,12 +66,6 @@ export default function Home() {
             })}
         </div>
       </section>
-
-      {copied && (
-        <div className="toast-copied">
-          Copied to clipboard!
-        </div>
-      )}
     </div>
   );
 }
