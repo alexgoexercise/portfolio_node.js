@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import Link from 'next/link';
 import { skills } from '../content/skills';
 import { FaUser, FaProjectDiagram, FaEnvelope } from 'react-icons/fa';
