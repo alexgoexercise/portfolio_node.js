@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { bandsList } from '@/content/bands';
+import { bandsList, Band } from '@/content/bands';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -197,16 +197,33 @@ function AcademicPortfolio() {
 }
 
 function DrummingPortfolio() {
-  const handleBandClick = (band: any, e: React.MouseEvent) => {
+  const handleBandClick = (band: Band, e: React.MouseEvent) => {
     e.preventDefault();
     // Always navigate to the band detail page when clicking the card
     window.location.href = `/band/${band.id}`;
   };
 
-  const handleExternalClick = (band: any, e: React.MouseEvent) => {
+  const handleBandKeyDown = (band: Band, e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      window.location.href = `/band/${band.id}`;
+    }
+  };
+
+  const handleExternalClick = (band: Band, e: React.MouseEvent) => {
     e.stopPropagation(); // Prevent card click
     if (band.externalUrl) {
       window.open(band.externalUrl, '_blank');
+    }
+  };
+
+  const handleExternalKeyDown = (band: Band, e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      e.stopPropagation();
+      if (band.externalUrl) {
+        window.open(band.externalUrl, '_blank');
+      }
     }
   };
 
@@ -224,12 +241,7 @@ function DrummingPortfolio() {
               onClick={(e) => handleBandClick(band, e)}
               role="button"
               tabIndex={0}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  e.preventDefault();
-                  handleBandClick(band, e as any);
-                }
-              }}
+              onKeyDown={(e) => handleBandKeyDown(band, e)}
             >
               {band.externalUrl && (
                 <div 
@@ -237,12 +249,7 @@ function DrummingPortfolio() {
                   onClick={(e) => handleExternalClick(band, e)}
                   role="button"
                   tabIndex={0}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                      e.preventDefault();
-                      handleExternalClick(band, e as any);
-                    }
-                  }}
+                  onKeyDown={(e) => handleExternalKeyDown(band, e)}
                 >
                   <span>{band.clickNotice}</span>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
