@@ -89,7 +89,8 @@ export default function About() {
             Worked with design teams and senior software engineers to build the food delivery robot.<br />
             <ul>
               <li>Utilised ROS, Docker and OpenCV to design solutions for robot perception related issues.</li>
-              <li>Performed data collection and LiDAR - Camera Calibration to improve the accuracy of robot perception.</li>
+              <li>Performed LIDAR point cloud filtering to improve the accuracy of robot perception.</li>
+              <li>Developed a LINUX desktop application to perform LIDAR-camera calibration.</li>
               <li>Partnered with team members to conduct daily road tests and participated in the product demo to investors.</li>
             </ul>
           </div>
@@ -121,6 +122,20 @@ export default function About() {
             </ul>
           </div>
           <div className="proj-dates">2024</div>
+        </div>
+
+        <div className="proj-block">
+          <div className="proj-details">
+            <strong>Personal Portfolio Website</strong><br />
+            Personal Project<br />
+            <ul>
+              <li>Built a modern, responsive portfolio website using Next.js, TypeScript, and React.</li>
+              <li>Implemented interactive features including image galleries, video integration, and dynamic content management.</li>
+              <li>Designed dual-theme interface (academic and music) with smooth animations and enhanced user experience.</li>
+              <li>Deployed on Vercel with optimized performance and SEO best practices.</li>
+            </ul>
+          </div>
+          <div className="proj-dates">2025</div>
         </div>
       </section>
 

@@ -115,11 +115,6 @@ function AcademicPortfolio() {
     window.open(`https://www.google.com/search?q=${searchQuery}`, '_blank');
   };
 
-  const handleCardClick = (project: Project) => {
-    // Card click does nothing for now - could be used for internal navigation later
-    // For now, only the notice button handles external URLs
-  };
-
   const handleExternalClick = (project: Project, e: React.MouseEvent) => {
     e.stopPropagation(); // Prevent card click
     if (project.url) {
