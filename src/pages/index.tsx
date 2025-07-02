@@ -6,16 +6,6 @@ import { FaUser, FaProjectDiagram, FaEnvelope } from 'react-icons/fa';
 export default function Home() {
   const [copied, setCopied] = useState(false);
 
-  function handleCopyEmail() {
-    const email = "alexzhaolixiuqi@gmail.com";
-    navigator.clipboard.writeText(email)
-      .then(() => {
-        setCopied(true);
-        setTimeout(() => setCopied(false), 2000);
-      })
-      .catch((err) => console.error("Copy failed:", err));
-  }
-
   return (
     <div className="home">
       <section className="hero">
