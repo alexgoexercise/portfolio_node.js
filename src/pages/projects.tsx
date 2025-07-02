@@ -11,17 +11,6 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-const Pro1 = '/Pro1.jpg';
-const Pro2 = '/Pro2.jpg';
-const Pro3 = '/Pro3.jpg';
-const Pro4 = '/Pro4.jpg';
-const Pro5 = '/Pro5.jpg';
-const rtos1 = '/rtos1.jpg';
-const rtos2 = '/rtos2.jpg';
-const rtos3 = '/rtos3.jpg';
-const Port1 = '/Portfolio1.jpg';
-const Port2 = '/Portfolio2.jpg';
-
 export default function Projects() {
   const router = useRouter();
   const [isDrummingMode, setIsDrummingMode] = useState(false);
