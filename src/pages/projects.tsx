@@ -4,6 +4,7 @@ import { Navigation, Pagination } from 'swiper/modules';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { bandsList, Band } from '@/content/bands';
+import { projects, Project } from '@/content/projects';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -20,15 +21,6 @@ const rtos2 = '/rtos2.jpg';
 const rtos3 = '/rtos3.jpg';
 const Port1 = '/Portfolio1.jpg';
 const Port2 = '/Portfolio2.jpg';
-
-type Project = {
-  title: string;
-  description: string | string[];
-  images: string[];
-  tags: string[];
-  url?: string;
-  clickNotice?: string;
-};
 
 export default function Projects() {
   const router = useRouter();
@@ -64,52 +56,6 @@ export default function Projects() {
 }
 
 function AcademicPortfolio() {
-  const projects: Project[] = [
-    {
-      title: "AR Laser Tag++",
-      description: [
-        "Developed wearable system with gun, vest, and sensors for AR gaming.",
-        "The hardware logic is built based on Arduino (IR transimission between the gun and vest for shooting, LED flashing for health display and so on), then is integrated with socket programming (in charge by my other teammate) to communicate with the host machine.",
-        "The game supports up to 2 players, each players can perform special attack or simply shoot from the 'hand gun' to deal damage to the opponent."
-      ],
-      images: [
-        Pro1,
-        Pro2,
-        Pro3,
-        Pro4,
-        Pro5,
-      ],
-      tags: ["Arduino", "Machine Learning", "Hardware Design"],
-      url: "https://youtu.be/j6V-k7JI1kU?si=eQzZtGNRQTZ5DoNx",
-      clickNotice: "Click to watch the demo video (my personal part)"
-    },
-    {
-      title: "RTOS Car Racing",
-      description: ["Utilised an RTOS to develop an ARM-based autonomous robotic car under competitive race conditions.",
-        "Finished among the higher-ranking competitors in the final race."
-      ],
-      images: [
-        rtos1,
-        rtos2,
-        rtos3,
-      ],
-      tags: ["RTOS", "Embedded C", "ARM Architecture"],
-      url: "https://youtu.be/wuBXb3VTfQs?si=vmmgp4It8mhxug4X",
-      clickNotice: "Click to watch the demo video"
-    },
-    {
-      title: "Personal Website",
-      description: "Personal Website built with node.js + react tech stack.",
-      images:[
-        Port1,
-        Port2,
-      ],
-      tags: ["node.js", "react", "typescript", "vercel"],
-      url: "https://github.com/alexgoexercise/portfolio_node.js",
-      clickNotice: "Click to view source code"
-    }
-  ];
-
   const handleTagClick = (tag: string) => {
     const searchQuery = encodeURIComponent(tag);
     window.open(`https://www.google.com/search?q=${searchQuery}`, '_blank');
