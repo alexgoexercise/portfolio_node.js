@@ -204,6 +204,8 @@ export const bandsData: Record<string, Band> = {
     period: "2022 - 2024",
     role: "drummer",
     tags: ["Jazz", "Jazz Standards", "Big Band"],
+    externalUrl: "https://www.instagram.com/nusjazzband",
+    clickNotice: "Click to follow on Instagram",
     performances: [
       {
         title: "Sem 1 Showcase 2022: On Bali Lane",
