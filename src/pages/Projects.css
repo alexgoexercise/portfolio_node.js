@@ -57,27 +57,7 @@
   border-color: rgba(102, 126, 234, 0.2);
 }
 
-/* Clickable card styles */
-.clickable-card {
-  cursor: pointer;
-  position: relative;
-}
-
-.clickable-card:hover {
-  transform: translateY(-8px) scale(1.02); 
-  box-shadow: 
-    0 20px 60px rgba(0,0,0,0.15),
-    0 8px 24px rgba(0,0,0,0.08),
-    inset 0 1px 0 rgba(255,255,255,0.9);
-  border-color: rgba(102, 126, 234, 0.3);
-}
-
-.clickable-card:focus {
-  outline: 2px solid rgba(102, 126, 234, 0.5);
-  outline-offset: 2px;
-}
-
-/* Click notice styles */
+/* Enhanced click notice styles for academic theme */
 .click-notice {
   position: absolute;
   top: 1rem;
@@ -97,21 +77,30 @@
   transition: all 0.3s ease;
   z-index: 10;
   opacity: 0.9;
+  cursor: pointer;
 }
 
 .click-notice:hover {
   opacity: 1;
-  transform: translateY(-2px);
+  transform: translateY(-2px) scale(1.05);
   box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
+  background: linear-gradient(135deg, rgba(102, 126, 234, 1) 0%, rgba(118, 75, 162, 1) 100%);
+}
+
+.click-notice:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 2px;
 }
 
 .click-notice svg {
   transition: transform 0.3s ease;
 }
 
-.clickable-card:hover .click-notice svg {
+.click-notice:hover svg {
   transform: translateX(2px) translateY(-2px);
 }
+
+
 
 /* Drumming theme click notice styles */
 .drumming-click-notice {

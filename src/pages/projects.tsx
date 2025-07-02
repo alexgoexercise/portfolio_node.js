@@ -116,8 +116,24 @@ function AcademicPortfolio() {
   };
 
   const handleCardClick = (project: Project) => {
+    // Card click does nothing for now - could be used for internal navigation later
+    // For now, only the notice button handles external URLs
+  };
+
+  const handleExternalClick = (project: Project, e: React.MouseEvent) => {
+    e.stopPropagation(); // Prevent card click
     if (project.url) {
       window.open(project.url, '_blank');
+    }
+  };
+
+  const handleExternalKeyDown = (project: Project, e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      e.stopPropagation();
+      if (project.url) {
+        window.open(project.url, '_blank');
+      }
     }
   };
 
@@ -126,19 +142,16 @@ function AcademicPortfolio() {
       {projects.map((project) => (
         <div 
           key={project.title} 
-          className={`project-card ${project.url ? 'clickable-card' : ''}`}
-          onClick={() => handleCardClick(project)}
-          role={project.url ? 'button' : undefined}
-          tabIndex={project.url ? 0 : undefined}
-          onKeyDown={(e) => {
-            if (project.url && (e.key === 'Enter' || e.key === ' ')) {
-              e.preventDefault();
-              handleCardClick(project);
-            }
-          }}
+          className="project-card"
         >
           {project.url && (
-            <div className="click-notice">
+            <div 
+              className="click-notice"
+              onClick={(e) => handleExternalClick(project, e)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => handleExternalKeyDown(project, e)}
+            >
               <span>{project.clickNotice}</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
