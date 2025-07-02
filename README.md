@@ -1,40 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Alex Zhao's Portfolio Website
 
-## Getting Started
+Welcome! This is my personal portfolio, built to showcase my journey as an engineer, developer, and musician. Here you'll find my academic and professional projects, my music adventures, and a bit about who I am.
 
-First, run the development server:
+## Tech Stack
+- Next.js (React, TypeScript)
+- CSS Modules & custom CSS
+- Swiper for image galleries
+- Deployed on Vercel
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Design & Features
+- **Dual Themes:** Switch between "Academic Projects" and "Music Journey" for two sides of my story.
+- **Interactive Cards:** Projects and bands are displayed as cards with image sliders, tags, and external links.
+- **Accessible & Responsive:** Works great on any device, with keyboard navigation and semantic HTML.
+- **SEO & Performance:** Optimized for fast loading and discoverability.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## How to Navigate
+- **Home:** Quick intro and links to everything else.
+- **About:** My background, education, and a summary of key projects (including this website!).
+- **Projects:**
+  - Use the toggle at the top to switch between Academic and Music views.
+  - Academic: See my engineering/software projects. Click the notice button on a card to view demos or code.
+  - Music: Explore my bands and performances. Click a band card for details, or the notice button for external links.
+- **Band Detail:** Each band has its own page with event galleries and stories.
+- **Contacts:** All my contact info, social links, and a like button. You can even copy my email or scan my WeChat QR.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Special Touches
+- Tags are clickable for quick Google searches.
+- Video links are clearly marked with a play icon.
+- Like button on the Contacts page (because why not?).
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Want to Tweak or Contribute?
+- Projects and bands are managed in `src/pages/projects.tsx` and `src/content/bands.ts`.
+- Styles are in `src/styles/globals.css` and CSS modules in each page/component.
+- Deploys automatically with Vercel when you push to GitHub.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+Thanks for stopping by! If you have feedback or want to connect, check out the Contacts page.
