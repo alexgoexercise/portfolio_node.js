@@ -36,6 +36,66 @@ export const bandsData: Record<string, Band> = {
     externalUrl: "https://www.instagram.com/nusvoices",
     clickNotice: "Click to follow on Instagram",
     performances: [
+      {
+        title: "Prelude 2021: 雨中漫步",
+        date: "30/10/2021",
+        venue: "Shaw Foundation Alumni House (livestream)",
+        description: "First show in NUSVoices.",
+        images: [
+          {src: "/band-images/Voices/prelude-2021/2.jpg", url: "https://www.youtube.com/live/2HOBFiwBqbI?si=AL3traYW1z3lrwOL"},
+          {src: "/band-images/Voices/prelude-2021/3.jpg", url: "https://www.youtube.com/live/2HOBFiwBqbI?si=AL3traYW1z3lrwOL"},
+          {src: "/band-images/Voices/prelude-2021/1.jpg", url: "https://www.youtube.com/live/2HOBFiwBqbI?si=AL3traYW1z3lrwOL"},
+          {src: "/band-images/Voices/prelude-2021/4.jpg", url: "https://www.youtube.com/live/2HOBFiwBqbI?si=AL3traYW1z3lrwOL"}
+        ]
+      },
+      {
+        title: "Emerge 2022: 夏夜幻月",
+        date: "02/04/2022",
+        venue: "Shaw Foundation Alumni House",
+        description: "Voices' first live show after the pandemic. I performed a lot of songs including a long Jay Chou medley.",
+        images: [
+           {src: "/band-images/Voices/emerge-2022/1.jpg", url: "https://youtu.be/0KSx_OmpuoU?si=NbZE9_EYQuh5ryaC"},
+           {src: "/band-images/Voices/emerge-2022/2.jpg", url: "https://youtu.be/0KSx_OmpuoU?si=NbZE9_EYQuh5ryaC"},
+           {src: "/band-images/Voices/emerge-2022/3.jpg", url: "https://youtu.be/0KSx_OmpuoU?si=NbZE9_EYQuh5ryaC"}
+        ]
+      },
+      {
+        title: "Prelude 2022: 梦境乐园",
+        date: "28/10/2022",
+        venue: "Shaw Foundation Alumni House",
+        description: "The first Voices concert after I joined the Exco. Organising a concert with the team was a new challenge to me.",
+        images: [
+          {src: "/band-images/Voices/prelude-2022/1.jpg", url: "https://youtu.be/rWebSa6S984?si=d4kHqPrLR-rG12TS"},
+          {src: "/band-images/Voices/prelude-2022/2.jpg", url: "https://youtu.be/rWebSa6S984?si=d4kHqPrLR-rG12TS"},
+          {src: "/band-images/Voices/prelude-2022/3.jpg", url: "https://youtu.be/rWebSa6S984?si=d4kHqPrLR-rG12TS"},
+          {src: "/band-images/Voices/prelude-2022/4.jpg", url: "https://youtu.be/rWebSa6S984?si=d4kHqPrLR-rG12TS"}
+        ]
+      },
+      {
+        title: "Emerge 2023: 寻星者",
+        date: "02/04/2023",
+        venue: "UCC Hall",
+        description: "Probably the biggest concert NUS Voices ever held with more than 600 audiences (it's at UCC Hall).",
+        images: [
+          {src: "/band-images/Voices/emerge-2023/1.jpg", url: "https://youtu.be/Ob9O7CpeEQw?si=ziZIi4MKvyfx-dc2"},
+          {src: "/band-images/Voices/emerge-2023/2.jpg", url: "https://youtu.be/Ob9O7CpeEQw?si=ziZIi4MKvyfx-dc2"},
+          {src: "/band-images/Voices/emerge-2023/3.jpg", url: "https://youtu.be/Ob9O7CpeEQw?si=ziZIi4MKvyfx-dc2"},
+          {src: "/band-images/Voices/emerge-2023/4.jpg", url: "https://youtu.be/Ob9O7CpeEQw?si=ziZIi4MKvyfx-dc2"}
+        ]
+      },
+      {
+        title: "Prelude 2023: 拥抱过去",
+        date: "04/11/2023",
+        venue: "Shaw Foundation Alumni House",
+        description: "First time cross playing as a bassist in NUS Voices, and played one of my favorite songs ‘流沙’ on drums.",
+        images: [
+          {src: "/band-images/Voices/prelude-2023/1.jpg", url: "https://b23.tv/d34kXL2"},
+          {src: "/band-images/Voices/prelude-2023/2.jpg"},
+          {src: "/band-images/Voices/prelude-2023/3.jpg", url: "https://b23.tv/3ag6y3W"},
+          {src: "/band-images/Voices/prelude-2023/4.jpg", url: "https://b23.tv/d34kXL2"},
+          {src: "/band-images/Voices/prelude-2023/5.jpg", url: "https://b23.tv/d34kXL2"}
+        ]
+      },
     ]
   },
   2: {
