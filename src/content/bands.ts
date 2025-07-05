@@ -60,6 +60,16 @@ export const bandsData: Record<string, Band> = {
         ]
       },
       {
+        title: "Supernova 2022",
+        date: "12/08/2022",
+        venue: "Utown Green",
+        description: "The first supernova held in NUS, which is one of the biggest shows in NUS every year.",
+        images: [
+          {src: "/band-images/Voices/supernova-2022/1.jpg", url: "https://b23.tv/b60MoP9"},
+          {src: "/band-images/Voices/supernova-2022/2.jpg", url: "https://b23.tv/b60MoP9"}
+        ]
+      },
+      {
         title: "Prelude 2022: 梦境乐园",
         date: "28/10/2022",
         venue: "Shaw Foundation Alumni House",
@@ -96,6 +106,28 @@ export const bandsData: Record<string, Band> = {
           {src: "/band-images/Voices/prelude-2023/5.jpg", url: "https://b23.tv/d34kXL2"}
         ]
       },
+      {
+        title: "Prelude 2024: 爱的余晖",
+        date: "10/11/2024",
+        venue: "Utown Auditorium 2",
+        description: "Playing more songs on bass this time, but got to do ‘小镇姑娘’ on drums.",
+        images:[
+          {src: "/band-images/Voices/prelude-2024/1.jpg", url: "https://youtu.be/igRKeLU4GKE?si=5hYEtk67O4uiQ0lL"},
+          {src: "/band-images/Voices/prelude-2024/2.jpg", url: "https://youtu.be/vljt1OP-b5w?si=EzOfk1if1xOdx3yW"},
+          {src: "/band-images/Voices/prelude-2024/3.jpg", url: "https://youtu.be/rZzx02pgDCQ?si=fspcg47zEHLjYlM1"},
+          {src: "/band-images/Voices/prelude-2024/4.jpg", url: "https://youtu.be/9R77eUAxvPA?si=UpDGZdxUrWXhKsH1"}
+        ]
+      },
+      {
+        title: "Overdrive 2025",
+        date: "14/03/2025",
+        venue: "NUS Central Library",
+        description: "Mini music festival style concert, played 'tender', 'emo whiskey' and '神预言' with program, and played a Khalil Fong tribute at the end of the concert.",
+        images: [
+          {src: "/band-images/Voices/overdrive-2025/1.jpg", url: "https://b23.tv/YZ7Ri4D"},
+          {src: "/band-images/Voices/overdrive-2025/2.jpg", url: "https://b23.tv/ajWMIM8"}
+        ]
+      }
     ]
   },
   2: {
